@@ -1,0 +1,33 @@
+html {
+    font-size: 13px; 
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: 'Arima Madurai';
+    font-size: 35px;
+    position: absolute;
+    top: 5px;
+    color: #f44336;
+}
+
+#map {
+    height: 400px;
+    width: 700px;
+}
+
+.mapInfo {
+    border-left: 1px solid #f44336;
+    border-top: 4px solid #f44336;
+    position:absolute;
+    top: 500px;
+    left: 10px;
+    width: 300px;
+    padding-left: 4px;
+    font-size: 11px;
+
+}
+#instructions {
+    font-size: 13px;
+}
+

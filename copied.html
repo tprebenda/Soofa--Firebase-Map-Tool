@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en"><head><style>@keyframes beginBrowserAutofill{0%{}to{}}@keyframes endBrowserAutofill{0%{}to{}}.pac-container{background-color:#fff;position:absolute!important;z-index:1000;border-radius:2px;border-top:1px solid #d9d9d9;font-family:Arial,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.3);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.pac-logo:after{content:"";padding:1px 1px 1px 0;height:18px;box-sizing:border-box;text-align:right;display:block;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);background-position:right;background-repeat:no-repeat;background-size:120px 14px}.hdpi.pac-logo:after{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)}.pac-item{cursor:default;padding:0 4px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;line-height:30px;text-align:left;border-top:1px solid #e6e6e6;font-size:11px;color:#999}.pac-item:hover{background-color:#fafafa}.pac-item-selected,.pac-item-selected:hover{background-color:#ebf2fe}.pac-matched{font-weight:700}.pac-item-query{font-size:13px;padding-right:3px;color:#000}.pac-icon{width:15px;height:20px;margin-right:7px;margin-top:6px;display:inline-block;vertical-align:top;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);background-size:34px}.hdpi .pac-icon{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)}.pac-icon-search{background-position:-1px -1px}.pac-item-selected .pac-icon-search{background-position:-18px -1px}.pac-icon-marker{background-position:-1px -161px}.pac-item-selected .pac-icon-marker{background-position:-18px -161px}.pac-placeholder{color:gray}.pac-target-input:-webkit-autofill{animation-name:beginBrowserAutofill}.pac-target-input:not(:-webkit-autofill){animation-name:endBrowserAutofill}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Heat Map Data</title>
+
+
+</style>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/common.js"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/util.js"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/geocoder.js"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/controls.js"></script>
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/places_impl.js"></script>
+</head><body class=""><h2 style="/*! top: 5px; */ /*! left: 230px; */ /*! position: absolute; *//*! text-align: center; */width: 100%;color: #f44336;font-family: Arial,Helvetica,sans-serif;">Soofa Map Tool</h2>
+
+
+  <style>
+ 
+
+
+    body { font-family:sans-serif; }
+
+    h1 { position:absolute; background:white; padding:5px;}
+    
+/*   Important for leaflet map  */  
+.leaflet-container {                                            
+      background: rgba(0,0,0,.8) !important;
+    } 
+
+    
+/* Css for checkboxes */  
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: absolute;
+}
+
+.selectBox select {
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  font-weight:100;
+}
+
+#checkboxes label {
+
+
+
+  display: block;
+}
+
+/*Css for 'averge score' button*/
+.scoredisplay {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+
+/*Css for warning box*/
+
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+    width: 400px;
+    position:absolute;
+    top: 450px;
+    left: 725px;
+}
+  </style>
+
+
+
+
+<!-- Dropdown menu for cities. This is where you add a new city!  -->
+<form style="position:absolute; top: 500px; left: 537px;">
+    <select id="selectcity">
+        <option value="default">Pick a City!</option>
+        <option value="Cambridge">Cambridge, MA</option>
+        <option value="Providence">Providence, RI</option>
+        <option value="Trenton">Trenton, NJ</option>
+        <option value="Cuero">Cuero, TX</option>
+        <option value="Portage">Portage, MI</option>
+        <option value="Lafayette">Lafayette, LA</option>
+        <option value="ArlingtonHeights">Arlington Heights, IL</option>
+    </select>
+</form>
+
+<!-- Dependancies and external javascript code -->
+
+<!-- This is for the map view (leaflet.js) -->
+  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">
+  <style> .leaflet-zoom-hide { position: absolute!important; } </style>
+  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+
+  
+
+<!--   This is for heatmap.js. (Must be in the same folder. If not, change the path!) -->
+  <script src="heatmap.js"></script>
+  <script src="leaflet-heatmap.js"></script>
+
+
+  <!-- Set up Google Maps Javascript API -->
+  <div class="heatmap leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="map" tabindex="0" style="position: absolute; top: 105px; height: 390px; width: 675px;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(824px, 878px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(-154px, -396px, 0px) scale(0.5);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(-103px, -264px, 0px) scale(1);"><img alt="" role="presentation" src="https://c.tile.openstreetmap.org/12/1239/1514.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-366px, -591px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.openstreetmap.org/12/1240/1514.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-110px, -591px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.openstreetmap.org/12/1239/1515.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-366px, -335px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.openstreetmap.org/12/1240/1515.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-110px, -335px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.openstreetmap.org/12/1238/1514.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-622px, -591px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.openstreetmap.org/12/1241/1514.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(146px, -591px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.openstreetmap.org/12/1238/1515.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-622px, -335px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.openstreetmap.org/12/1241/1515.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(146px, -335px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.openstreetmap.org/12/1237/1514.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-878px, -591px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.openstreetmap.org/12/1237/1515.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-878px, -335px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://a.tile.openstreetmap.org/12/1238/1513.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-622px, -847px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://b.tile.openstreetmap.org/12/1239/1513.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-366px, -847px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.openstreetmap.org/12/1237/1513.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-878px, -847px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://c.tile.openstreetmap.org/12/1240/1513.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-110px, -847px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-376px, -720px, 0px);" alt=""><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-291px, -602px, 0px);" alt=""><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-688px, -807px, 0px);" alt=""><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-486px, -683px, 0px);" alt=""></div><div class="leaflet-pane leaflet-overlay-pane"><div class="leaflet-zoom-hide" style="width: 675px; height: 390px; position: relative; transform: translate(-824px, -878px);"><canvas class="heatmap-canvas" width="675" height="390" style="position: absolute; left: 0px; top: 0px;"></canvas></div><svg pointer-events="none" class="leaflet-zoom-animated" width="810" height="468" style="transform: translate3d(-891px, -917px, 0px);" viewBox="-891 -917 810 468"><g><path class="leaflet-interactive" stroke="#4d4d4d" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10" fill="#4d4d4d" fill-opacity="0" fill-rule="evenodd" d="M-634 -575L-634 -780L-358 -780L-358 -575z"></path></g></svg></div><div class="leaflet-pane leaflet-marker-pane"><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-376px, -720px, 0px); z-index: -720;" tabindex="0"><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-291px, -602px, 0px); z-index: -602;" tabindex="0"><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-688px, -807px, 0px); z-index: -807;" tabindex="0"><img src="https://soofaiap.firebaseapp.com/bower_components/leaflet/dist/images/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-486px, -683px, 0px); z-index: -683;" tabindex="0"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(317167px, 387756px, 0px) scale(2048);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a></div></div></div></div><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdsGq2g7EJPonPoSutU98iQKL-9W3odG8&amp;libraries=places" type="text/javascript"></script>
+
+
+  <script>
+
+ /// Default Values for heatmap
+
+  var googlefoodData = {max: 0, data: []};
+  var googlecommunityData = {max: 0, data: []};
+  var googlebigshopsData = {max: 0, data: []};
+  var googlesmallshopsData = {max: 0, data: []};
+  var googletransitData = {max: 0, data: []};
+  var googletouristData = {max: 0, data: []};
+
+  var yelpfoodData = {max: 0, data: []};
+  var yelpshoppingData = {max: 0, data: []};
+  var yelpcommunityData= {max: 0, data: []};
+
+  var walkscoreData = {max: 0, data: []};
+  var averageData = {max: 0, data: []};
+  var compositeData = {max: 0, data: []};
+  var markercontainer = new Array();
+
+  var layersactive = [];
+
+
+  </script>
+
+
+
+
+
+  <!--  Default  Data File -->   
+  <script src="DataFiles/SoofaDataCambridge.js"></script>  
+
+
+<!-- Set up score displays -->
+
+
+
+<button class="scoredisplay" id="scorebutton" style="position:absolute; top: 100px; left: 800px; background-color: #2981ca;width: 115px;height: 36.8px;">Show More Scores</button>
+
+<form id="scoresform" style="visibility: hidden;">
+    <label for="googlefood" style="position:absolute; top: 125px; left: 730px;">Google Food Score:</label>
+    <input style="position:absolute; top: 125px; left: 930px; width: 50px;" id="googlefood" type="text" readonly="">
+    <label for="googlecommunity" style="position:absolute; top: 155px; left: 730px;">Google Community Score:</label>
+    <input id="googlecommunity" type="text" readonly="" style="position:absolute; top: 155px; left: 930px; width: 50px;">
+    <label for="googlebigshops" style="position:absolute; top: 185px; left: 730px;">Google Big Shops Score:</label>
+    <input id="googlebigshops" type="text" readonly="" style="position:absolute; top: 185px; left: 930px; width: 50px;">
+    <label for="googlesmallshops" style="position:absolute; top: 215px; left: 730px;">Google Small Shops Score:</label>
+    <input id="googlesmallshops" type="text" readonly="" style="position:absolute; top: 215px; left: 930px; width: 50px;">
+
+    <label for="googletransit" style="position:absolute; top: 245px; left: 730px;">Google Transit Score:</label>
+    <input id="googletransit" type="text" readonly="" style="position:absolute; top: 245px; left: 930px; width: 50px;">
+
+    <label for="googletransit" style="position:absolute; top: 275px; left: 730px;">Google Tourist Score:</label>
+    <input id="googletourist" type="text" readonly="" style="position:absolute; top: 275px; left: 930px; width: 50px;">
+
+    <label for="yelpfood" style="position:absolute; top: 305px; left: 730px;">Yelp Food Score:</label>
+    <input id="yelpfood" type="text" readonly="" style="position:absolute; top: 305px; left: 930px; width: 50px;">
+
+    <label for="yelpshopping" style="position:absolute; top: 335px; left: 730px;">Yelp Shopping Score:</label>
+    <input id="yelpshopping" type="text" readonly="" style="position:absolute; top: 335px; left: 930px; width: 50px;">
+
+    <label style="position:absolute; top: 365px; left: 750px;" for="yelpcommunity">Yelp Community Score:</label>
+    <input style="position:absolute; top: 365px; left: 950px; width: 50px;" id="yelpcommunity" type="text" readonly="">
+
+
+    <label style="position:absolute; top: 395px; left: 750px;" for="walkscore">Walking Score:</label>
+    <input style="position:absolute; top: 395px; left: 950px; width: 50px;" id="walkscore" type="text" readonly="">
+
+
+    <label style="position:absolute; top: 425px; left: 750px;" for="address">Address:</label>
+    <input style="position:absolute; top: 425px; left: 825px; width: 300px;" id="address" type="text" readonly="">
+</form>
+
+
+<form> 
+    <label class="scoredisplay" for="average" style="position:absolute; top: 60px; left: 730px;">Average Score:</label>
+    <input style="position:absolute; top: 60px; left: 880px; width: 50px; height: 33px; font-size: 14px; text-align: center;" id="average" type="text" readonly="">
+</form>
+ 
+  <script>
+
+//// Google Reverse Geocodeing Setup (for address display) ////
+var geocoder = new google.maps.Geocoder;
+
+function geocodeLatLng(geocoder, lat, lng) {
+  var latlng = {lat: lat, lng: lng};
+  geocoder.geocode({'location': latlng}, function(results, status) {
+    if (status === 'OK') {
+      if (results[1]) {
+            document.getElementById('address').value = results[0].formatted_address;
+      } else {
+            document.getElementById('address').value = 'No results found';
+      }
+    } else {
+      document.getElementById('address').value = 'Geocoder failed due to: ' + status;
+    }
+  });
+}
+
+/////////////// Base Map Setup /////////////////////////////
+
+
+var baseLayer = L.tileLayer(
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+  }
+  );
+
+var map = new L.Map(document.getElementById('map'), {
+  center: new L.LatLng(42.3736, - 71.1097),
+  zoom: 13,
+  layers: [baseLayer]
+
+});
+
+map.on('click', onMapClick);
+
+
+
+var baseMaps = {
+  "Map View": baseLayer
+};
+
+
+/// Marker customization, chnage iconUrl if you want a different looking marker ///
+
+// var soofaIcon = L.icon({
+//     iconUrl: iconimage in png format,
+
+//     iconSize:     [38, 95], // size of the icon
+//     shadowSize:   [50, 64], // size of the shadow
+//     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+//     shadowAnchor: [4, 62],  // the same for the shadow
+//     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+// });
+
+
+/// Add Markers to Map on click, plus change scores when marker is dragged///
+
+function onMapClick(e) {
+  marker = new L.marker(e.latlng, {draggable:'true'});
+  marker.on('click', markerOnClick);
+  markercontainer.push(marker);
+
+
+  for (var name in AllScores){
+    document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+  }
+
+  var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
+
+  marker.addTo(map)
+  map.panTo(marker.getLatLng());
+
+  marker.on('dragend', function(event){
+    var marker = event.target;
+    var position = marker.getLatLng();
+    marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+    var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
+    marker.addTo(map)
+
+
+  for (var name in AllScores){
+    document.getElementById(name).value = escore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+  }    
+
+    var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
+
+
+    map.panTo(new L.LatLng(position.lat, position.lng))
+
+  });
+
+  map.addLayer(marker);
+
+};
+
+/// Update scores on click ///
+function markerOnClick(e)
+{
+   for (var name in AllScores){
+    document.getElementById(name).value = calculatescore(e.latlng.lat,e.latlng.lng, AllScores[name]); 
+  }
+  var currlocation = geocodeLatLng(geocoder, e.latlng.lat, e.latlng.lng);
+  map.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
+}
+
+
+
+
+/// Heatmap Specifications ///
+
+
+/// If you want to have different colors, put this: gradient: {'.5': 'blue', '.8': 'red', '.95': 'white'}
+
+var cfg1 = {"radius": .007, "maxOpacity": .8, "scaleRadius": true, "useLocalExtrema": true, latField: 'lat', lngField: 'lng', valueField: 'count',  "blur": .8 };
+
+var compositelayer = new HeatmapOverlay(cfg1);
+
+
+/// Set Data ///
+
+
+compositelayer.setData({max: 0, data:[]});
+
+
+// /// Create Map Layers ///
+
+var compositegroup = L.layerGroup([compositelayer]);
+
+
+/// Add Layers to Map ///
+
+map.addLayer(compositegroup);
+
+
+//// Scoring Section ////
+
+/// Get Scores of Closest Location ///
+function closestscore (lat, lng, arr) {
+
+              var bestlat = arr[0].lat;
+              var bestlng = arr[0].lng;
+              var bestdist = Math.pow(Math.abs(lat - bestlat), 2) + Math.pow(Math.abs(lng - bestlng), 2);
+              var bestindex = 0;
+
+              for (i = 1; i < arr.length; i++){
+                currlat = arr[i].lat;
+                currlng = arr[i].lng;
+                currdist = Math.pow(Math.abs(lat - currlat), 2) + Math.pow(Math.abs(lng - currlng), 2);
+                if (currdist < bestdist){
+                  bestlat = currlat;
+                  bestlng = currlng;
+                  bestindex = i;
+                  bestdist = currdist;
+                }
+              }
+              return arr[bestindex].count
+            }
+
+/// Return scores between 0 and 10 ///
+
+function calculatescore(lat, lng, heatmapdata){
+  score = closestscore(lat, lng, heatmapdata.data);
+  return Math.round(1000*score/heatmapdata.max)/100; // Returns two decimal places
+}
+
+ </script>
+
+<!-- Code for changing cities, resets all values and markers  -->
+ <script type="text/javascript">
+  document.getElementById('selectcity').onchange = function(){
+    var myScript = document.createElement('script');
+    myScript.setAttribute('src', 'DataFiles/SoofaData' + this.value.split(" ")[0] + '.js');
+    document.head.appendChild(myScript);
+    myScript.onload = function() {
+    compositelayer.setData({max:0, data: []});
+    document.getElementById("layerselector").reset();
+    map.panTo(new L.LatLng(lat, lng)); 
+    for (var i = 0; i < markercontainer.length; i++){
+      map.removeLayer(markercontainer[i]);
+    };
+    markercontainer = [];
+    layersactive = [];
+    map.removeLayer(rect);
+    rect = L.rectangle([northeastcoord, southwestcoord], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
+    map.addLayer(rect);
+    for (var name in AllScores){
+    document.getElementById(name).value = "";
+  }
+    document.getElementById('address').value = "";
+    // showCheckboxes();
+
+    };
+}
+
+
+/// Function for adding multiple heatmaps together ///
+
+function layertrigger(keyword){
+    index = layersactive.indexOf(keyword);
+    if (index > -1){
+      layersactive.splice(index, 1);
+    } else{
+      layersactive.push(keyword);
+    }
+    if (layersactive.length > 0){
+      var newdata = clone(AllScores[layersactive[0]].data);
+      for (var j = 1; j < layersactive.length; j++){
+        var adder = clone(AllScores[layersactive[j]].data);
+        for (var i = 0; i < newdata.length; i++){
+          newdata[i].count = newdata[i].count + adder[i].count;
+        }
+      }
+
+      compositelayer.setData({max:1000, data: newdata}); 
+    }
+
+    else{
+      compositelayer.setData({max: 0, data: []});
+    }
+  }
+
+
+/// Function to clone a javascript object ///
+
+function clone(obj) {
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || "object" != typeof obj) return obj;
+
+    // Handle Date
+    if (obj instanceof Date) {
+        var copy = new Date();
+        copy.setTime(obj.getTime());
+        return copy;
+    }
+
+    // Handle Array
+    if (obj instanceof Array) {
+        var copy = [];
+        for (var i = 0, len = obj.length; i < len; i++) {
+            copy[i] = clone(obj[i]);
+        }
+        return copy;
+    }
+
+    // Handle Object
+    if (obj instanceof Object) {
+        var copy = {};
+        for (var attr in obj) {
+            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+        }
+        return copy;
+    }
+
+    throw new Error("Unable to copy obj! Its type isn't supported.");
+}
+
+
+
+</script>
+
+
+<!-- Dropdown menu for multiple heatmap layers  -->
+<form id="layerselector" style="position:absolute; top: 500px; left: 375px;">
+  <div class="multiselect">
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option>Pick Heatmap Layers!</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes" style="display: none;">
+      <label style="background-color:white; padding-top: 16px">
+      <input onclick="layertrigger('googlefood');" type="checkbox">Google Food Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('googlecommunity');" type="checkbox">Google Community Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('googlebigshops');" type="checkbox">Google BigShops Data</label>
+
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('googlesmallshops');" type="checkbox">Google SmallShops Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('googletransit');" type="checkbox">Google Transit Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('googletourist');" type="checkbox">Google Tourist Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('yelpfood');" type="checkbox">Yelp Food Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('yelpshopping');" type="checkbox">Yelp Shopping Data</label>
+
+     <label style="background-color:white;">
+      <input onclick="layertrigger('yelpcommunity');" type="checkbox">Yelp Community Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="layertrigger('walkscore');" type="checkbox">Walk Score Data</label>
+
+      <label style="background-color:white;">
+      <input onclick="for (key in AllScores){ if (key != 'average'){layertrigger(key)}};" type="checkbox">Show All Layers</label>
+
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+
+</script>
+
+<!-- Google Searchbox -->
+<div>
+  <input style="position:absolute; top: 70px; width: 400px; height:20px; border-style: groove; " type="text" id="mapsearch" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
+</div>
+
+<script> 
+/// Code for Searchbox adding marker ///
+
+var searchBox = new google.maps.places.SearchBox(document.getElementById('mapsearch'));
+  google.maps.event.addListener(searchBox, 'places_changed', function(){
+
+for (var i = 0; i < searchBox.getPlaces().length; i++){
+
+  marker = new L.marker([searchBox.getPlaces()[i].geometry.location.lat(), searchBox.getPlaces()[i].geometry.location.lng()], {draggable:'true'});
+  marker.on('click', markerOnClick);
+  markercontainer.push(marker);
+
+  for (var name in AllScores){
+    document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]); 
+  }
+
+  var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
+
+  marker.addTo(map)
+  map.panTo(marker.getLatLng());
+
+  marker.on('dragend', function(event){
+    var marker = event.target;
+    var position = marker.getLatLng();
+    marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+    var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
+    marker.addTo(map)
+
+
+  for (var name in AllScores){
+    document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+  }    
+
+     document.getElementById('address').value = searchBox.getPlaces()[0].address;
+
+
+    map.panTo(new L.LatLng(position.lat, position.lng))
+
+  });
+  map.addLayer(marker);
+}
+
+  });
+
+/// Code for Showing/Hiding Scores ///
+
+  var theButton = document.getElementById('scorebutton');
+  var shown = false;
+  theButton.onclick = function() { 
+    if (shown){
+        document.getElementById('scoresform').style.visibility='hidden';  
+        shown = !shown; 
+    }
+    else{
+        document.getElementById('scoresform').style.visibility='visible';  
+        shown = !shown;
+    }
+  }
+
+  // Code for Dashed Recntangle //
+
+  var rect = L.rectangle([northeastcoord, southwestcoord], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
+  map.addLayer(rect);
+
+</script>
+
+<!-- Notification  -->
+
+<div class="danger">
+  <p> Click on the map to create a draggable marker. Display heatmaps on the map by picking from 'Pick Heatmap Layers!' Change cities by selecting from 'Pick a City.' </p>
+    <p><b>Note:</b> If the heatmaps are not displaying, change your browser's security settings. </p>
+</div>
+
+    
+     
+<div class="pac-container pac-logo hdpi" style="display: none; width: 402px; position: absolute; left: 8px; top: 95px;"></div></body></html>

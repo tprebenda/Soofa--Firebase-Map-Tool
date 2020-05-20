@@ -1,5 +1,5 @@
 /*                                                                      *
- *                  SETTING UP lEAFLETS API                             *
+ *                  SETTING UP LEAFLETS API                             *
  *                                                                      */
 
 var mymap = L.map('map').setView([42.412660,-71.123060], 13);
@@ -12,7 +12,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoidHByZWJlbmRhIiwiYSI6ImNrYWZ2MDQ1djAwaGMyeHF0OTV4eDVzenAifQ.lxCM4eHlgBPXKqeDIr8pFw'
 }).addTo(mymap);
 
-var marker = null;
+
+// Create marker
+var marker;
 function onMapClick(e) {
     if (marker == null) {
         marker = L.marker(e.latlng).addTo(mymap)
@@ -21,8 +23,8 @@ function onMapClick(e) {
     marker.setLatLng(e.latlng)
     }
 }
-
 mymap.on('click', onMapClick);
+
 
 
 

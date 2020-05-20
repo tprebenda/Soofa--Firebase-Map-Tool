@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Soofa Firebase Tool</title>
+        <link href="firebase.css" rel="stylesheet">
+        <!-- Google Maps API -->
+        <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+        </script>
+        <!-- Leaflet API -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin="">
+        </script>
+    </head>
+    <h1>Soofa Firebase Map</h1>
+    <body>
+        <div id="map"></div>
+        <div class = "mapInfo">
+            <p class="instructions"><b>Click on the map to create a draggable marker.</b></p>
+            <p>Display heatmaps on the map by picking from 'Pick Heatmap Layers!' Change cities by selecting from 'Pick a City.'</p> 
+            <p class="instructions"><b>Need help?</b></p> 
+            <p>If the heatmaps are not displaying, try changing your browser's security settings. </p>
+        </div>
+        <form id="heatmapselection">
+            <div class="multiselect">
+                <div class="selectBox" onclick="showBoxes()">
+                    <select>
+                        <option>Pick Heatmap Layers!</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes">
+                    <label><input onclick="layertrigger('googlecommunity');" type="checkbox">Google Community Data</label>
+                </div>
+            </div>
+        </form>
+        <form id="cityselection">
+            <select id="selectCity">
+                <option value="default">Pick a City!</option>
+                <option value="Cambridge">Cambridge MA</option>
+                <option value="Providence">Providence RI</option>
+                <option value="Trenton">Trenton NJ</option>
+                <option value="Cuero">Cuero TX</option>
+                <option value="Portage">Portage MI</option>
+                <option value="Lafayette">Lafayette LA</option>
+                <option value="ArlingtonHeights">Arlington Heights IL</option>
+            </select>
+        </form>
+
+        <!-- Change if file is not in immediate directory -->
+        <script src="maps.js"></script>
+        <script src="scores.js"></script>
+    </body>

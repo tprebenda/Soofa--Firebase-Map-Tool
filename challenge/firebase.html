@@ -20,25 +20,52 @@
     <h1>Soofa Firebase Map</h1>
     <body>
         <div id="map"></div>
+        <div id>
+            <input type="text" id="mapsearch" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
+        </div>
         <div class = "mapInfo">
             <p class="instructions"><b>Click on the map to create a draggable marker.</b></p>
             <p>Display heatmaps on the map by picking from 'Pick Heatmap Layers!' Change cities by selecting from 'Pick a City.'</p> 
             <p class="instructions"><b>Need help?</b></p> 
             <p>If the heatmaps are not displaying, try changing your browser's security settings. </p>
         </div>
-        <form id="heatmapselection">
+
+        <form id = "heatmapselector">
             <div class="multiselect">
-                <div class="selectBox" onclick="showBoxes()">
+                <div class="selectBox" onclick="showCheckboxes()">
                     <select>
                         <option>Pick Heatmap Layers!</option>
                     </select>
-                    <div class="overSelect"></div>
+                <div class="overSelect"></div>
                 </div>
                 <div id="checkboxes">
-                    <label><input onclick="layertrigger('googlecommunity');" type="checkbox">Google Community Data</label>
+                    <label style="padding-top: 20px">
+                    <input onclick="layertrigger('googlefood');" type="checkbox">Google Food Data</label>
+                    <label>
+                    <input onclick="layertrigger('googlecommunity');" type="checkbox">Google Community Data</label>
+                    <label>
+                    <input onclick="layertrigger('googlebigshops');" type="checkbox">Google BigShops Data</label>
+                    <label>
+                    <input onclick="layertrigger('googlesmallshops');" type="checkbox">Google SmallShops Data</label>
+                    <label>
+                    <input onclick="layertrigger('googletransit');" type="checkbox">Google Transit Data</label>
+                    <label>
+                    <input onclick="layertrigger('googletourist');" type="checkbox">Google Tourist Data</label>
+                    <label>
+                    <input onclick="layertrigger('yelpfood');" type="checkbox">Yelp Food Data</label>
+                    <label>
+                    <input onclick="layertrigger('yelpshopping');" type="checkbox">Yelp Shopping Data</label>
+                    <label>
+                    <input onclick="layertrigger('yelpcommunity');" type="checkbox">Yelp Community Data</label>
+                    <label>
+                    <input onclick="layertrigger('walkscore');" type="checkbox">Walk Score Data</label>
+                    <label>
+                    <input onclick="for (key in AllScores){ if (key != 'average'){layertrigger(key)}};" type="checkbox">Show All Layers</label>
                 </div>
             </div>
         </form>
+        
+
         <form id="cityselection">
             <select id="selectCity">
                 <option value="default">Pick a City!</option>

@@ -7,7 +7,7 @@ h1 {
     font-family: 'Arima Madurai';
     font-size: 35px;
     position: absolute;
-    top: -5px;
+    top: -12px;
     color: #f44336;
 }
 
@@ -17,42 +17,81 @@ h1 {
     border-left: 1px solid black;
     border-right: 1px solid black;
     position: absolute;
-    top: 70px;
+    top: 90px;
     height: 420px;
     width: 700px;
     left: 10px;
+}
+
+#mapsearch {
+    position:absolute;
+    top: 62px;
+    left: 10px;
+    width: 345px;
+    height:20px;
+    border-style: groove;
 }
 
 .mapInfo {
     border-left: 1px solid #f44336;
     border-top: 4px solid #f44336;
     position: absolute;
-    top: 500px;
+    top: 520px;
     left: 10px;
     width: 320px;
     padding-left: 4px;
     font-size: 12px;
 }
 
+/* Instructions regarding map use */
 .instructions {
     font-size: 14px;
 }
 
-#heatmapselection {
+
+/* Css for heatmap checkboxes */
+#heatmapselector {
     position: absolute;
-    top: 500px;
+    top: 520px;
     left: 375px;
 }
+
+.multiselect {
+    width: 183px;
+}
+  
+.selectBox {
+    position: absolute;
+}
+  
+.selectBox select {
+    width: 100%;
+}
+  
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+  
 #checkboxes {
     display: none;
-    background-color: white;
     border: 1px #dadada solid;
     font-weight:100;
 }
+  
+#checkboxes label {
+    display: block;
+}
 
+
+
+/* For choosing city */
 #cityselection {
     position: absolute;
-    top: 500px;
+    top: 520px;
     left: 562px;
 }
 

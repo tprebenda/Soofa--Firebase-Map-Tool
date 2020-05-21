@@ -1,13 +1,15 @@
+// Heatmap Checkboxes
 
-function showBoxes() {
-    layers = document.getElementById("checkboxes");
-
-    if (layers.style.display === "none") {
-        layers.style.display = "block";
-    }
-    else {
-        layers.style.display = "none";
-    }
+var expanded = false;
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
 }
 
 

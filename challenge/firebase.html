@@ -1,25 +1,32 @@
 <!DOCTYPE html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <title>Soofa Firebase Tool</title>
         <link href="firebase.css" rel="stylesheet">
-        <!-- Google Maps API -->
         <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
-        <script type="text/javascript"
-                src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
-        </script>
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=visualization"></script>
+        <!-- Other Google Apis -->
+        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/common.js"></script>
+        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/util.js"></script>
+        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/geocoder.js"></script>
+        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/controls.js"></script>
+        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/places_impl.js"></script>
         <!-- Leaflet API -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
             integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
             crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin="">
-        </script>
+            crossorigin=""></script>
     </head>
     <h1>Soofa Firebase Map</h1>
     <body>
         <div id="map"></div>
+            <!-- FOR DOTTED RECTANGE... DOESN'T WORK? (NEED OTHER DIV LEAFLET STUFF... INSPECT THEIR WEBSITE) -->
+            <!-- <g>
+                <path class="leaflet-interactive" stroke="#4d4d4d" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10" fill="#4d4d4d" fill-opacity="0" fill-rule="evenodd" d="M141 218L141 13L417 13L417 218z"></path>
+            </g> -->
         <div id>
             <input type="text" id="mapsearch" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
         </div>
@@ -64,7 +71,6 @@
                 </div>
             </div>
         </form>
-        
 
         <form id="cityselection">
             <select id="selectCity">
@@ -78,8 +84,50 @@
                 <option value="ArlingtonHeights">Arlington Heights IL</option>
             </select>
         </form>
+        <form>
+            <label id = "avgbutton" for="average">Average Score:</label>
+            <input id="average" style="position:absolute; top: 90px; left: 955px; width: 52px; height: 30px; font-size: 14px; text-align: center;" type="text" readonly="">
+        </form>
+        <button id = "showscores">Show All Scores:</button>
+        <form id = "allscores">
+            <label for="googlefood" style="position:absolute; top: 205px; left: 740px;">Google Food Score:</label>
+            <input style="position:absolute; top: 205px; left: 930px; width: 50px;" id="googlefood" type="text" readonly="">
+            <label for="googlecommunity" style="position:absolute; top: 235px; left: 740px;">Google Community Score:</label>
+            <input id="googlecommunity" type="text" readonly="" style="position:absolute; top: 235px; left: 930px; width: 50px;">
+           
+            
+            <!-- <label for="googlebigshops" style="position:absolute; top: 215px; left: 740px;">Google Big Shops Score:</label>
+            <input id="googlebigshops" type="text" readonly="" style="position:absolute; top: 215px; left: 930px; width: 50px;">
+            <label for="googlesmallshops" style="position:absolute; top: 245px; left: 730px;">Google Small Shops Score:</label>
+            <input id="googlesmallshops" type="text" readonly="" style="position:absolute; top: 245px; left: 930px; width: 50px;">
+
+            <label for="googletransit" style="position:absolute; top: 245px; left: 730px;">Google Transit Score:</label>
+            <input id="googletransit" type="text" readonly="" style="position:absolute; top: 245px; left: 930px; width: 50px;">
+
+            <label for="googletransit" style="position:absolute; top: 275px; left: 730px;">Google Tourist Score:</label>
+            <input id="googletourist" type="text" readonly="" style="position:absolute; top: 275px; left: 930px; width: 50px;">
+
+            <label for="yelpfood" style="position:absolute; top: 305px; left: 730px;">Yelp Food Score:</label>
+            <input id="yelpfood" type="text" readonly="" style="position:absolute; top: 305px; left: 930px; width: 50px;">
+
+            <label for="yelpshopping" style="position:absolute; top: 335px; left: 730px;">Yelp Shopping Score:</label>
+            <input id="yelpshopping" type="text" readonly="" style="position:absolute; top: 335px; left: 930px; width: 50px;">
+
+            <label style="position:absolute; top: 365px; left: 750px;" for="yelpcommunity">Yelp Community Score:</label>
+            <input style="position:absolute; top: 365px; left: 950px; width: 50px;" id="yelpcommunity" type="text" readonly="">
+
+
+            <label style="position:absolute; top: 395px; left: 750px;" for="walkscore">Walking Score:</label>
+            <input style="position:absolute; top: 395px; left: 950px; width: 50px;" id="walkscore" type="text" readonly="">
+
+            <label style="position:absolute; top: 425px; left: 750px;" for="address">Address:</label>
+            <input style="position:absolute; top: 425px; left: 825px; width: 300px;" id="address" type="text" readonly=""> -->
+        </form>    
 
         <!-- Change if file is not in immediate directory -->
-        <script src="maps.js"></script>
         <script src="scores.js"></script>
+        <script src="maps.js"></script>
+        <script src="heatmap.js"></script>
+        <script src="leaflet-heatmap.js"></script>
     </body>
+</html>

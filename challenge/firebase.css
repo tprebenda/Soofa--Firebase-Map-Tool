@@ -7,6 +7,7 @@ h1 {
     font-family: 'Arima Madurai';
     font-size: 35px;
     position: absolute;
+    left: 10px;
     top: -12px;
     color: #f44336;
 }
@@ -41,6 +42,7 @@ h1 {
     width: 320px;
     padding-left: 4px;
     font-size: 12px;
+    padding-right: 7px;
 }
 
 /* Instructions regarding map use */
@@ -53,11 +55,12 @@ h1 {
 #heatmapselector {
     position: absolute;
     top: 520px;
-    left: 375px;
+    left: 382px;
+    height: 10px;
 }
 
 .multiselect {
-    width: 183px;
+    width: 190px;
 }
   
 .selectBox {
@@ -87,11 +90,37 @@ h1 {
 }
 
 
-
 /* For choosing city */
 #cityselection {
     position: absolute;
     top: 520px;
-    left: 562px;
+    left: 570px;
 }
 
+
+#avgbutton {
+    position: absolute;
+    top: 90px;
+    left: 780px;
+    font-family: 'Arima Madurai';
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+}
+
+#showscores {
+    position: absolute;
+    top: 165px;
+    left: 740px;
+    font-family: 'Arima Madurai';
+    padding: 1px 10px;
+    background-color: #75cff0;
+}
+
+#allscores {
+    visibility: hidden;
+}

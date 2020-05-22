@@ -58,9 +58,27 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // var baseMaps = { "Map View": baseLayer };
 
-mymap.on('click', onMapClick);
+
+/********   HEATMAP SETUP:   **********/
+var cfg = {"radius": .007, "maxOpacity": .8, "scaleRadius": true, "useLocalExtrema": true, latField: 'lat', lngField: 'lng', valueField: 'count',  "blur": .8 };
+var compositelayer = new HeatmapOverlay(cfg);  
+/// Set Data ///
+// var testData = {
+//   max: 8,
+//   data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]        // TEST DATA
+// };
+
+// {max: 0, data:[]}
+compositelayer.setData({max: 0, data:[]});
+/// Create Map Layers ///
+var compositegroup = L.layerGroup([compositelayer]);    
+/// Add Layers to Map ///
+mymap.addLayer(compositegroup);   
+
+
 
 /// Add Markers to Map on click, plus change scores when marker is dragged  ///
+mymap.on('click', onMapClick);
 var marker;
 function onMapClick(e) {
     marker = L.marker(e.latlng, {draggable:'true'}).addTo(mymap);
@@ -68,7 +86,7 @@ function onMapClick(e) {
     markercontainer.push(marker);
   
     for (var name in AllScores) {
-      document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+        document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
     }
   
     var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
@@ -105,18 +123,7 @@ function markerOnClick(e) {
     mymap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
 }
 
-
-/********   HEATMAP SETUP:   **********/
-var cfg1 = {"radius": .007, "maxOpacity": .8, "scaleRadius": true, "useLocalExtrema": true, latField: 'lat', lngField: 'lng', valueField: 'count',  "blur": .8 };
-var compositelayer = new HeatmapOverlay(cfg1);  
-/// Set Data ///
-compositelayer.setData({max: 0, data:[]});
-/// Create Map Layers ///
-var compositegroup = L.layerGroup([compositelayer]);    
-/// Add Layers to Map ///
-mymap.addLayer(compositegroup);    
-
-
+ 
 
 /// Function for adding multiple heatmaps together ///
 function layertrigger(keyword){
@@ -144,8 +151,8 @@ function layertrigger(keyword){
 }
 
 
-
-// Show checkboxes for heatmap layers   **DISPLAY**
+// Show checkboxes for heatmap layers
+var expanded = false;
 function showCheckboxes() {
     var checkboxes = document.getElementById("checkboxes");
     if (!expanded) {

@@ -1,4 +1,3 @@
-
 /// Function to clone a javascript object ///
 function clone(obj) {
     // Handle the 3 simple types, and null or undefined

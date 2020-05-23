@@ -71,12 +71,16 @@ function calculatescore(lat, lng, heatmapdata){
 var button = document.getElementById('showscores');
 var shown = false;
 button.onclick = function() { 
-  if (shown){
-      document.getElementById('allscores').style.visibility='hidden';  
-      shown = !shown; 
-  }
-  else{
-      document.getElementById('allscores').style.visibility='visible';  
-      shown = !shown;
-  }
+    var scoreset = document.getElementById('allscores');
+
+    if (shown){
+        scoreset.style.visibility = 'hidden';  
+        button.textContent = 'Show All Scores:';
+        shown = !shown; 
+    }
+    else{
+        scoreset.style.visibility='visible';
+        button.textContent = '(Hide Scores)'; 
+        shown = !shown;
+    }
 }

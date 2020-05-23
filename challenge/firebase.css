@@ -26,7 +26,7 @@ h1 {
     left: 10px;
 }
 
-#mapsearch {
+#searchAddress {
     position: absolute;
     top: 62px;
     left: 10px;
@@ -34,6 +34,7 @@ h1 {
     height:20px;
     border-style: groove;
 }
+
 
 
 /*** MAP INSTRUCTIONS ***/
@@ -133,10 +134,11 @@ h1 {
     top: 185px;
     left: 740px;
     font-family: 'Arima Madurai';
-    padding: 5px 20px;
+    padding: 5px 16px;
     background-color: #75cff0;
     border: none;
     font-size: 14px;
+    font-weight: bold;
 }
 
 #allscores {
@@ -148,6 +150,7 @@ h1 {
     font-family: 'Arima Madurai';
     /* border-left: 1px solid #f44336; */
 }
+
 
 #allscores p {
     display: table-row;
@@ -162,4 +165,22 @@ h1 {
 #allscores input {
     display: table-cell;
     width: 65px;
+}
+
+
+/*** LOCATION OF MARKER ***/
+#markerAddress {
+    position: absolute;
+    /* visibility: hidden; */
+    top: 518px;
+    left: 741px;
+}
+
+#markerAddress label {
+    font-family: 'Arima Madurai';
+    padding-right: 45px;
+}
+
+#markerAddress input {
+    width: 300px;
 }

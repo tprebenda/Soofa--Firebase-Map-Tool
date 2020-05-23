@@ -1,11 +1,13 @@
 <!DOCTYPE html>
     <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>Soofa Firebase Tool</title>
         <link href="firebase.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
         <!-- Google Maps API -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=visualization"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=visualization"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=places"></script>
         <!-- Other Google Apis -->
         <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/common.js"></script>
         <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/util.js"></script>
@@ -23,12 +25,9 @@
     <h1>Soofa Firebase Map</h1>
     <body>
         <div id="map"></div>
-            <!-- FOR DOTTED RECTANGE... DOESN'T WORK? (NEED OTHER DIV LEAFLET STUFF... INSPECT THEIR WEBSITE) -->
-            <!-- <g>
-                <path class="leaflet-interactive" stroke="#4d4d4d" stroke-opacity="0.8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10" fill="#4d4d4d" fill-opacity="0" fill-rule="evenodd" d="M141 218L141 13L417 13L417 218z"></path>
-            </g> -->
-        <div id>
-            <input type="text" id="mapsearch" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
+            
+        <div>
+            <input id="searchAddress" type="text" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
         </div>
         <div class = "mapInfo">
             <p class="instructions"><b>Click on the map to create a draggable marker.</b></p>
@@ -36,7 +35,6 @@
             <p class="instructions"><b>Need help?</b></p> 
             <p>If the heatmaps are not displaying, try changing your browser's security settings. </p>
         </div>
-
         <form id = "heatmapselector">
             <div class="multiselect">
                 <div class="selectBox" onclick="showCheckboxes()">
@@ -99,11 +97,11 @@
                 <input id="googlecommunity" type="text" readonly="">
             </p>
             <p>
-                <label for="googlebigshops" >Google Big Shops Score:</label>
+                <label for="googlebigshops">Google Big Shops Score:</label>
                 <input id="googlebigshops" type="text" readonly="">
             </p>
             <p>
-                <label for="googlesmallshops" ">Google Small Shops Score:</label>
+                <label for="googlesmallshops">Google Small Shops Score:</label>
                 <input id="googlesmallshops" type="text" readonly="">
             </p>
             <p>
@@ -130,10 +128,14 @@
                 <label for="walkscore">Walking Score:</label>
                 <input id="walkscore" type="text" readonly="">
             </p>
-            <p>
-                <label for="address">Address:</label>
-                <input id="address" type="text" readonly="">
-            </p>
+            <!-- <p>
+                <label for="address">Location of Marker:</label>
+                <input id="address" type="text" readonly="">    
+            </p> -->
+        </form>
+        <form id="markerAddress">
+            <label for="address">Location of Marker:</label>
+            <input id="address" type="text" readonly="">   
         </form>
 
         <!-- Change if file is not in immediate directory -->

@@ -21,13 +21,15 @@ var layersactive = [];
 
 
 //// Google Reverse Geocodeing Setup (for address display) ////
-var geocoder = new google.maps.Geocoder;
-
-function geocodeLatLng(geocoder, lat, lng) {
-    var latlng = {lat: lat, lng: lng};
+var geocoder = new google.maps.Geocoder();
+function geocodeLatLng(geocoder, leaflet_latlng) {
+    // console.log("function called");
+    var latlng = {lat: leaflet_latlng.lat, lng: leaflet_latlng.lng};
     geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
-            if (results[1]) {
+            // console.log("here");
+            if (results[0]) {
+                console.log("good");
                 document.getElementById('address').value = results[0].formatted_address;
             } 
             else {
@@ -35,9 +37,10 @@ function geocodeLatLng(geocoder, lat, lng) {
             }
         }
         else {
-            document.getElementById('address').value = 'Geocoder failed due to: ' + status;
+            // console.log("bad");
+            document.getElementById('address').value = 'Error: ' + status;
         }
-  });
+    });
 }
 
 
@@ -60,56 +63,62 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 /********   HEATMAP SETUP:   **********/
-var cfg = {"radius": .007, "maxOpacity": .8, "scaleRadius": true, "useLocalExtrema": true, latField: 'lat', lngField: 'lng', valueField: 'count',  "blur": .8 };
-var compositelayer = new HeatmapOverlay(cfg);  
-/// Set Data ///
-// var testData = {
-//   max: 8,
-//   data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]        // TEST DATA
-// };
+// var cfg = {"radius": .007, "maxOpacity": .8, "scaleRadius": true, "useLocalExtrema": true, latField: 'lat', lngField: 'lng', valueField: 'count',  "blur": .8 };
+// var compositelayer = new HeatmapOverlay(cfg);  
+// /// Set Data ///
+// // var testData = {
+// //   max: 8,
+// //   data: [{lat: 24.6408, lng:46.7728, count: 3},{lat: 50.75, lng:-1.55, count: 1}]        // TEST DATA
+// // };
 
-// {max: 0, data:[]}
-compositelayer.setData({max: 0, data:[]});
-/// Create Map Layers ///
-var compositegroup = L.layerGroup([compositelayer]);    
-/// Add Layers to Map ///
-mymap.addLayer(compositegroup);   
+// // {max: 0, data:[]}
+// compositelayer.setData({max: 0, data:[]});
+// /// Create Map Layers ///
+// var compositegroup = L.layerGroup([compositelayer]);    
+// /// Add Layers to Map ///
+// mymap.addLayer(compositegroup);   
 
 
 
 /// Add Markers to Map on click, plus change scores when marker is dragged  ///
 mymap.on('click', onMapClick);
 var marker;
-function onMapClick(e) {
-    marker = L.marker(e.latlng, {draggable:'true'}).addTo(mymap);
+function onMapClick(e) { 
+    marker = new L.marker(e.latlng, {draggable:'true'}).addTo(mymap);
+    mymap.setView(e.latlng, 14);
     marker.on('click', markerOnClick);
     markercontainer.push(marker);
+    geocodeLatLng(geocoder, e.latlng);
+
   
     for (var name in AllScores) {
-        document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+        console.log(name);
+        document.getElementById(name).value = calculatescore(e.latlng.lat, e.latlng.lng, AllScores[name]);
+        // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
     }
   
-    var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
-  
-    mymap.panTo(marker.getLatLng());
+    
   
     marker.on('dragend', function(event) {
-        var marker = event.target;
-        var position = marker.getLatLng();
-        marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
-        currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
-        marker.addTo(mymap)
+        // ***** NOT LOGGING??? WHY IS THIS NOT PROC'ING?
+        console.log("dragged from onclick marker");
+        var position = event.target.getLatLng();
+        // marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+        marker.setLatLng(position, {draggable:'true'});
   
         for (var name in AllScores) {
-            document.getElementById(name).value = escore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+            // **** FOR DEBUGGING- IF CONSOLE PRINTS SAME TWO VALUES, CAN DELETE COMMENTED-OUT LINE BELOW CALCULATESCORES CALL
+            // console.log(marker.getLatLng().lng);
+            // console.log(position.lng);
+
+            document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
+            // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
         }    
         
-        var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
-  
-        mymap.panTo(new L.LatLng(position.lat, position.lng))
+        geocodeLatLng(geocoder, position);
+        mymap.setView(new L.latlng(position.lat, position.lng), 14);
   
     });
-  
     mymap.addLayer(marker);
 }
 
@@ -119,8 +128,9 @@ function markerOnClick(e) {
     for (var name in AllScores) {
         document.getElementById(name).value = calculatescore(e.latlng.lat,e.latlng.lng, AllScores[name]); 
     }
-    var currlocation = geocodeLatLng(geocoder, e.latlng.lat, e.latlng.lng);
-    mymap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
+    geocodeLatLng(geocoder, e.latlng);
+    mymap.setView(e.latlng, 14);
+    // mymap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
 }
 
  
@@ -167,38 +177,61 @@ function showCheckboxes() {
 
 
 // Google Searchbox:
-var searchBox = new google.maps.places.SearchBox(document.getElementById('mapsearch'));
-google.maps.event.addListener(searchBox, 'places_changed', function() {
-    for (var i = 0; i < searchBox.getPlaces().length; i++) {
-        marker = L.marker([searchBox.getPlaces()[i].geometry.location.lat(), searchBox.getPlaces()[i].geometry.location.lng()], {draggable:'true'});
+var searchBox = new google.maps.places.SearchBox(document.getElementById('searchAddress'));
+
+// Update searchBox's bounds to current viewpoint
+
+// ERROR STILL HERE-- NEED TO TRANSLATE BETWEEN LEAFLET LATLNG TO GMAPS LATLNG
+mymap.on('moveend', function(event) {
+    var bounds = new google.maps.LatLngBounds();
+    console.log(mymap.getBounds());
+    bounds.extend(mymap.getBounds());
+    searchBox.setBounds(bounds);
+});
+
+
+searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+    if (places.length == 0) {
+        return;
+    }
+
+    places.forEach(function(place) {
+        if (!place.geometry) {
+            console.log("Returned place contains no geometry");
+            return;
+        }
+
+        var latlng = L.latLng(place.geometry.location.lat(), place.geometry.location.lng());
+        var marker = new L.marker(latlng, {draggable:'true'}).addTo(mymap);
+        mymap.setView(latlng, 14);
         marker.on('click', markerOnClick);
         markercontainer.push(marker);
     
         for (var name in AllScores){
-            document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]); 
+            document.getElementById(name).value = calculatescore(lat, lng, AllScores[name]); 
         }
 
-        var currlocation = geocodeLatLng(geocoder, marker.getLatLng().lat, marker.getLatLng().lng);
-
-        marker.addTo(mymap)
-        mymap.panTo(marker.getLatLng());
+        geocodeLatLng(geocoder, latlng);
 
         marker.on('dragend', function(event) {
-            var marker = event.target;
-            var position = marker.getLatLng();
-            marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+            console.log("dragged from searchbox marker");
+            var position = event.target.getLatLng();
+            // marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+            marker.setLatLng(position, {draggable:'true'});
 
             for (var name in AllScores){
-                document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+                document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
+                // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
             }    
 
-            document.getElementById('address').value = searchBox.getPlaces()[0].address;
-            mymap.panTo(new L.LatLng(position.lat, position.lng))
+            document.getElementById('address').value = place.address;
+            console.log(document.getElementById('address').value);
+            mymap.setView(position, 14);
 
         });
         mymap.addLayer(marker);
-    }
-
+    });
 });
 
 
@@ -242,4 +275,3 @@ mymap.addLayer(rect);
 // window.google.maps.event.addListener(marker, 'click', function(event) {
 //     placeMarker(event.latLng);
 // });
-

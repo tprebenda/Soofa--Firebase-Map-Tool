@@ -120,12 +120,11 @@ function onMapClick(e) {
 
 /// Update scores on click ///
 function markerOnClick(e) {
-    for (var name in AllScores) {
-        document.getElementById(name).value = calculatescore(e.latlng.lat,e.latlng.lng, AllScores[name]); 
-    }
+    // for (var name in AllScores) {
+    //     document.getElementById(name).value = calculatescore(e.latlng.lat,e.latlng.lng, AllScores[name]); 
+    // }
     geocodeLatLng(geocoder, e.latlng);
     mymap.setView(e.latlng, 14);
-    // mymap.panTo(new L.latLng(e.latlng.lat, e.latlng.lng));
 }
 
  
@@ -207,7 +206,6 @@ searchBox.addListener('places_changed', function() {
 
         marker.on('dragend', function(event) {
             var position = event.target.getLatLng();
-            // marker.setLatLng(new L.latLng(position.lat, position.lng),{draggable:'true'});
             marker.setLatLng(position, {draggable:'true'});
 
             // for (var name in AllScores){
@@ -227,6 +225,17 @@ searchBox.addListener('places_changed', function() {
 var rect = L.rectangle([[42.415634, -71.129306], [42.405241, -71.111527]], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
 mymap.addLayer(rect);
 
+
+// Clears page before refreshing:
+window.onbeforeunload = function(e) {
+    document.getElementById('address').value = "";
+    document.getElementById('avgdisplay').value = "";
+
+    // for (var name in AllScores) {
+    //     document.getElementById(name).value = "";
+    // }
+
+}
 
 
 

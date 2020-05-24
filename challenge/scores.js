@@ -83,5 +83,5 @@ function closestscore (lat, lng, arr) {
         }
     }
 
-    return arr[bestindex].count
+    return arr[bestindex].count;
 }

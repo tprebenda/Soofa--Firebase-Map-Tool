@@ -48,7 +48,7 @@ function geocodeLatLng(geocoder, leaflet_latlng) {
  *                  SETTING UP LEAFLETS API                             *
  *                                                                      */
 
-// Map is set around my house at Tufts University :)
+///   Map is set around my house at Tufts University :)   ///
 var mymap = L.map('map').setView([42.412660,-71.123060], 14);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -80,27 +80,36 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 
-/// Add Markers to Map on click, plus change scores when marker is dragged  ///
+/// Add Markers to Map on click ///
 mymap.on('click', onMapClick);
 var marker;
 function onMapClick(e) { 
-    marker = new L.marker(e.latlng, {draggable:'true'}).addTo(mymap);
-    mymap.setView(e.latlng, 14);
+    addMarker(e.latlng, marker);
+}
+
+
+
+/// Adds marker to map, updates scores, and adds marker-dragging functionality ///
+function addMarker(latlng, marker) {
+    marker = new L.marker(latlng, {draggable:'true'}).addTo(mymap);
+    mymap.setView(latlng, 15);
     marker.on('click', markerOnClick);
     markercontainer.push(marker);
-    geocodeLatLng(geocoder, e.latlng);
-  
+    geocodeLatLng(geocoder, latlng);
+
     // for (var name in AllScores) {
     //     document.getElementById(name).value = calculatescore(e.latlng.lat, e.latlng.lng, AllScores[name]);
 
     //     // (Backup):
     //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
     // }
-  
+
     marker.on('dragend', function(event) {
         var position = event.target.getLatLng();
         marker.setLatLng(position, {draggable:'true'});
-  
+        geocodeLatLng(geocoder, position);
+        mymap.setView(new L.latLng(position.lat, position.lng), 15);
+
         // for (var name in AllScores) {
         //     // **** FOR DEBUGGING- IF CONSOLE PRINTS SAME TWO VALUES, CAN DELETE COMMENTED-OUT LINE BELOW CALCULATESCORES CALL
         //     // console.log(marker.getLatLng().lng);
@@ -108,11 +117,7 @@ function onMapClick(e) {
 
         //     document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
         //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
-        // }    
-        
-        geocodeLatLng(geocoder, position);
-        mymap.setView(new L.latLng(position.lat, position.lng), 14);
-  
+        // }
     });
     mymap.addLayer(marker);
 }
@@ -155,7 +160,7 @@ function layertrigger(keyword){
 }
 
 
-// Show checkboxes for heatmap layers
+/// Show checkboxes for heatmap layers ///
 var expanded = false;
 function showCheckboxes() {
     var checkboxes = document.getElementById("checkboxes");
@@ -170,16 +175,20 @@ function showCheckboxes() {
 }
 
 
-// Google Searchbox:
+
+/*                                                                      *
+ *                  SETTING UP GOOGLE SEARCHBOX                         *
+ *                                                                      */
+
 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchAddress'));
 
-// Update searchBox's bounds to current viewpoint (to bias search suggestions)
+/// Update searchBox's bounds to current viewpoint (to bias search suggestions) ///
 mymap.on('moveend', function(event) {
     var bounds = new google.maps.LatLngBounds(mymap.getBounds()._southWest, mymap.getBounds()._northEast);
     searchBox.setBounds(bounds);
 });
 
-
+/// Uses given searchbox address to add marker to map (by calling addMarker()), and updates scores ///
 searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     if (places.length == 0) {
@@ -193,40 +202,18 @@ searchBox.addListener('places_changed', function() {
         }
 
         var latlng = L.latLng(place.geometry.location.lat(), place.geometry.location.lng());
-        var marker = new L.marker(latlng, {draggable:'true'}).addTo(mymap);
-        mymap.setView(latlng, 14);
-        marker.on('click', markerOnClick);
-        markercontainer.push(marker);
-    
-        // for (var name in AllScores){
-        //     document.getElementById(name).value = calculatescore(latlng.lat, latlng.lng, AllScores[name]); 
-        // }
-
-        geocodeLatLng(geocoder, latlng);
-
-        marker.on('dragend', function(event) {
-            var position = event.target.getLatLng();
-            marker.setLatLng(position, {draggable:'true'});
-
-            // for (var name in AllScores){
-            //     document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
-            //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
-            // }    
-
-            geocodeLatLng(geocoder, position);
-            mymap.setView(new L.latLng(position.lat, position.lng), 14);
-        });
-        mymap.addLayer(marker);
+        var marker;
+        addMarker(latlng, marker);
     });
 });
 
 
-// Rectangle:
+/// Adds Dotted Rectangle to Map ///
 var rect = L.rectangle([[42.415634, -71.129306], [42.405241, -71.111527]], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
 mymap.addLayer(rect);
 
 
-// Clears page before refreshing:
+/// Clears all score/address values before refreshing page ///
 window.onbeforeunload = function(e) {
     document.getElementById('address').value = "";
     document.getElementById('avgdisplay').value = "";
@@ -236,6 +223,9 @@ window.onbeforeunload = function(e) {
     // }
 
 }
+
+
+
 
 
 

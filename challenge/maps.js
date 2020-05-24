@@ -23,13 +23,13 @@ var layersactive = [];
 //// Google Reverse Geocodeing Setup (for address display) ////
 var geocoder = new google.maps.Geocoder();
 function geocodeLatLng(geocoder, leaflet_latlng) {
-    // console.log("function called");
+    console.log("function called");
     var latlng = {lat: leaflet_latlng.lat, lng: leaflet_latlng.lng};
     geocoder.geocode({'location': latlng}, function(results, status) {
+        // console.log(results[0].formatted_address);
         if (status === 'OK') {
-            // console.log("here");
             if (results[0]) {
-                console.log("good");
+                // console.log("good");
                 document.getElementById('address').value = results[0].formatted_address;
             } 
             else {
@@ -89,34 +89,29 @@ function onMapClick(e) {
     marker.on('click', markerOnClick);
     markercontainer.push(marker);
     geocodeLatLng(geocoder, e.latlng);
+  
+    // for (var name in AllScores) {
+    //     document.getElementById(name).value = calculatescore(e.latlng.lat, e.latlng.lng, AllScores[name]);
 
-  
-    for (var name in AllScores) {
-        console.log(name);
-        document.getElementById(name).value = calculatescore(e.latlng.lat, e.latlng.lng, AllScores[name]);
-        // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
-    }
-  
-    
+    //     // (Backup):
+    //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+    // }
   
     marker.on('dragend', function(event) {
-        // ***** NOT LOGGING??? WHY IS THIS NOT PROC'ING?
-        console.log("dragged from onclick marker");
         var position = event.target.getLatLng();
-        // marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
         marker.setLatLng(position, {draggable:'true'});
   
-        for (var name in AllScores) {
-            // **** FOR DEBUGGING- IF CONSOLE PRINTS SAME TWO VALUES, CAN DELETE COMMENTED-OUT LINE BELOW CALCULATESCORES CALL
-            // console.log(marker.getLatLng().lng);
-            // console.log(position.lng);
+        // for (var name in AllScores) {
+        //     // **** FOR DEBUGGING- IF CONSOLE PRINTS SAME TWO VALUES, CAN DELETE COMMENTED-OUT LINE BELOW CALCULATESCORES CALL
+        //     // console.log(marker.getLatLng().lng);
+        //     // console.log(position.lng);
 
-            document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
-            // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
-        }    
+        //     document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
+        //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+        // }    
         
         geocodeLatLng(geocoder, position);
-        mymap.setView(new L.latlng(position.lat, position.lng), 14);
+        mymap.setView(new L.latLng(position.lat, position.lng), 14);
   
     });
     mymap.addLayer(marker);
@@ -130,7 +125,7 @@ function markerOnClick(e) {
     }
     geocodeLatLng(geocoder, e.latlng);
     mymap.setView(e.latlng, 14);
-    // mymap.panTo(new L.LatLng(e.latlng.lat, e.latlng.lng));
+    // mymap.panTo(new L.latLng(e.latlng.lat, e.latlng.lng));
 }
 
  
@@ -179,13 +174,9 @@ function showCheckboxes() {
 // Google Searchbox:
 var searchBox = new google.maps.places.SearchBox(document.getElementById('searchAddress'));
 
-// Update searchBox's bounds to current viewpoint
-
-// ERROR STILL HERE-- NEED TO TRANSLATE BETWEEN LEAFLET LATLNG TO GMAPS LATLNG
+// Update searchBox's bounds to current viewpoint (to bias search suggestions)
 mymap.on('moveend', function(event) {
-    var bounds = new google.maps.LatLngBounds();
-    console.log(mymap.getBounds());
-    bounds.extend(mymap.getBounds());
+    var bounds = new google.maps.LatLngBounds(mymap.getBounds()._southWest, mymap.getBounds()._northEast);
     searchBox.setBounds(bounds);
 });
 
@@ -208,27 +199,24 @@ searchBox.addListener('places_changed', function() {
         marker.on('click', markerOnClick);
         markercontainer.push(marker);
     
-        for (var name in AllScores){
-            document.getElementById(name).value = calculatescore(lat, lng, AllScores[name]); 
-        }
+        // for (var name in AllScores){
+        //     document.getElementById(name).value = calculatescore(latlng.lat, latlng.lng, AllScores[name]); 
+        // }
 
         geocodeLatLng(geocoder, latlng);
 
         marker.on('dragend', function(event) {
-            console.log("dragged from searchbox marker");
             var position = event.target.getLatLng();
-            // marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
+            // marker.setLatLng(new L.latLng(position.lat, position.lng),{draggable:'true'});
             marker.setLatLng(position, {draggable:'true'});
 
-            for (var name in AllScores){
-                document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
-                // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
-            }    
+            // for (var name in AllScores){
+            //     document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
+            //     // document.getElementById(name).value = calculatescore(marker.getLatLng().lat,marker.getLatLng().lng, AllScores[name]);
+            // }    
 
-            document.getElementById('address').value = place.address;
-            console.log(document.getElementById('address').value);
-            mymap.setView(position, 14);
-
+            geocodeLatLng(geocoder, position);
+            mymap.setView(new L.latLng(position.lat, position.lng), 14);
         });
         mymap.addLayer(marker);
     });
@@ -236,7 +224,7 @@ searchBox.addListener('places_changed', function() {
 
 
 // Rectangle:
-var rect = L.rectangle([[42.418277, -71.109133], [42.410443, -71.141051]], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
+var rect = L.rectangle([[42.415634, -71.129306], [42.405241, -71.111527]], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
 mymap.addLayer(rect);
 
 

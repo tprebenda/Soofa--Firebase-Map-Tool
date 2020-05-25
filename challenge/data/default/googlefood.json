@@ -1,0 +1,989 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CqQCHwEAAFO8cqD8DX5nLoQ7WSavvZld-zbquxfB8so3OYdPrQN7Pc2-5IdCrVjmRte4JBSyqHKclWQ5l2Js7IPr9G2Kx1Vg2bCXXlGY7d1ofFkgX-BJb065F_UIl_ECrLjVPXK6wOyiRDzLTfaFxzqtAYRbRZ-rvlGtHBZvMVnkn5JTaHkGuV_bsMRgQ1n5xDDxB7UXpWZ4K1KXKTWBRxNhsPklNcHCtMoy1ExDlXhwNWT5qlEQiZsnuev7bUKIsokGwo02fy91DohcMUmR1XP7BKoVOJeEjA_M1TdyTZ0Hl67UTf14aS3-4SHjZf52n8tJTqik9UCHrjjvbw4JqnTKv5_Ptsma2khLQPMD9dIMASZzosRynVuQt7czJicw4MsJ0LhhuhIQTjQgJPEbDDGnWH4C-vLMNhoUji01OmN4x91QfHnFSSjx0MCfUQo",
+   "results" : [
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.403007,
+               "lng" : -71.12725399999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4043836802915,
+                  "lng" : -71.1258057197085
+               },
+               "southwest" : {
+                  "lat" : 42.4016857197085,
+                  "lng" : -71.1285036802915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c3678893db14ded0bb66c0eb86e97e879e081999",
+         "name" : "Rudy's Cafe",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2988,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114468127960090120904\"\u003eDouglas Flora\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAPi_5HcKMYKZiNwdudQy92JZc490AYmCJRbzPy1RsGHKom9Zsb7n9Dj8pQ5N18H5uoBSRqRZuMcwQtswn4pLVc6Pud9Eb4uyVYYesgqktK1CiWRE7LuBNv1Wh7Au3JB8kEhAgwnx_Z2HqYlJuSAvyQORkGhSzHIhT5rLHhO1vJAo5ovSfPtfBYA",
+               "width" : 5312
+            }
+         ],
+         "place_id" : "ChIJx5mxH-J244kRHGc04EkWEcM",
+         "plus_code" : {
+            "compound_code" : "CV3F+63 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV3F+63"
+         },
+         "price_level" : 2,
+         "rating" : 4.3,
+         "reference" : "ChIJx5mxH-J244kRHGc04EkWEcM",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 317,
+         "vicinity" : "248 Holland Street, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4006935,
+               "lng" : -71.11757519999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4021221802915,
+                  "lng" : -71.11623731970849
+               },
+               "southwest" : {
+                  "lat" : 42.3994242197085,
+                  "lng" : -71.1189352802915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "8916a905741c39d0d58b8178a174c91a170c614f",
+         "name" : "Subway",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJZzKchSJ344kRFUitbKtWuhQ",
+         "plus_code" : {
+            "compound_code" : "CV2J+7X Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV2J+7X"
+         },
+         "price_level" : 1,
+         "rating" : 3.9,
+         "reference" : "ChIJZzKchSJ344kRFUitbKtWuhQ",
+         "scope" : "GOOGLE",
+         "types" : [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 47,
+         "vicinity" : "860 Broadway, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.42136309999999,
+               "lng" : -71.1322954
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4226575302915,
+                  "lng" : -71.13104401970851
+               },
+               "southwest" : {
+                  "lat" : 42.4199595697085,
+                  "lng" : -71.13374198029152
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "2aabd82e6b0ca8b25f3d191aef202411edd2c1a9",
+         "name" : "Bistro 5",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 900,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102382839227035096705\"\u003eBistro 5\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAKh1NLiyBjohJavY_-U77cNiYXFmto9_uHmA337u9czHScaeyawUpI-_-eVdtLYWStOL7sF97WhHYOgdqJn6e3R1qbKYO1Z_3doKRT_9s1DibvSoR0kjcy57v6VmmwwtEEhDXIhInSmWXuQexPuyZ7VHfGhTbLg_UFfBI9Wm80aWCZSgrUyDDvw",
+               "width" : 1350
+            }
+         ],
+         "place_id" : "ChIJtdp_Wu1244kRsm_1jdf1OHY",
+         "plus_code" : {
+            "compound_code" : "CVC9+G3 Medford, Massachusetts, United States",
+            "global_code" : "87JCCVC9+G3"
+         },
+         "price_level" : 3,
+         "rating" : 4.5,
+         "reference" : "ChIJtdp_Wu1244kRsm_1jdf1OHY",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 161,
+         "vicinity" : "5 Playstead Road, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4032088,
+               "lng" : -71.1267024
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4044980302915,
+                  "lng" : -71.12540101970849
+               },
+               "southwest" : {
+                  "lat" : 42.4018000697085,
+                  "lng" : -71.12809898029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "aab1fca8f342a56ff3a78b4aea68406a726edc73",
+         "name" : "Masala",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117406587301876719484\"\u003ebader nasser\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAED_FfwEWeDbOMvcDWn983XSOsN3eerseUEHwW36dC1crjpFkxt4IO5k4CsJ_FHVjA3VU_oaxPD6bsDuS3UpiTIXtRiB3tfcBwlj-6ZAT_Dipx2KYW2RmmDDr9tsu8tpXEhDXAL7DyuKrsPJMajcR3c3ZGhR9MoafIFy3u05uJhgvUNOhbngalA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ1djy9OF244kR-Zuw50B3cKo",
+         "plus_code" : {
+            "compound_code" : "CV3F+78 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV3F+78"
+         },
+         "price_level" : 2,
+         "rating" : 4.3,
+         "reference" : "ChIJ1djy9OF244kR-Zuw50B3cKo",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 421,
+         "vicinity" : "1127 Broadway, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.41060359999999,
+               "lng" : -71.1200283
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4119101302915,
+                  "lng" : -71.1187269697085
+               },
+               "southwest" : {
+                  "lat" : 42.4092121697085,
+                  "lng" : -71.12142493029152
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "bc4c1acae60a0d43f5e9ff6590b863814f72a710",
+         "name" : "Nick's House of Pizza",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101554357407264551829\"\u003eKarl Hess\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAbAbNylMRZHMMYnzezu-nkbQpi8NbR8CCl6Szd1F_Xbp88U11ARkwFORz8XsPuSTqtnLBWNHgQNdal6dx7bOVIZhL6FcsnUb0gJw1TYhItXJybFTxV-weo5KvQUMyZSIhEhCydFe6MNFvDzJdTXTFGIKMGhSnd0zqqbrl4a1Nzn2gMMYhNOmXFw",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJhY0sqcJ244kR2iRozwYyZPY",
+         "plus_code" : {
+            "compound_code" : "CV6H+6X Medford, Massachusetts, United States",
+            "global_code" : "87JCCV6H+6X"
+         },
+         "price_level" : 1,
+         "rating" : 4.5,
+         "reference" : "ChIJhY0sqcJ244kR2iRozwYyZPY",
+         "scope" : "GOOGLE",
+         "types" : [
+            "meal_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 178,
+         "vicinity" : "372 Boston Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.40745889999999,
+               "lng" : -71.10860579999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4087809302915,
+                  "lng" : -71.10738251970849
+               },
+               "southwest" : {
+                  "lat" : 42.4060829697085,
+                  "lng" : -71.1100804802915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "f68afe6da89b7185d5cbeb79da860e60b3b3d83d",
+         "name" : "Bob's Italian Foods",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 685,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103826928151479250577\"\u003eBob&#39;s Italian Foods\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAsXxYPS9tktPfP6iNBDCRJFCrAbrS23HnCG8MYf-pS_lFr8LEP2yMPRTc1FYF9hiBkkKACKzR32QWEWibO3A3WQeV3LSXmALvkCa7oauVAlpyRR9_nb4ixx0o5wfynUhMEhAArJpeoSzTzPzv-zYIocoeGhRk_G4T8SEvjW7Ufqb2b8XoroCZCQ",
+               "width" : 691
+            }
+         ],
+         "place_id" : "ChIJ88bKDdB244kRDJ9IXJxPKHw",
+         "plus_code" : {
+            "compound_code" : "CV4R+XH Medford, Massachusetts, United States",
+            "global_code" : "87JCCV4R+XH"
+         },
+         "price_level" : 2,
+         "rating" : 4.6,
+         "reference" : "ChIJ88bKDdB244kRDJ9IXJxPKHw",
+         "scope" : "GOOGLE",
+         "types" : [
+            "grocery_or_supermarket",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 338,
+         "vicinity" : "324 Main Street, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4115743,
+               "lng" : -71.121493
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4128607302915,
+                  "lng" : -71.1202151697085
+               },
+               "southwest" : {
+                  "lat" : 42.4101627697085,
+                  "lng" : -71.12291313029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "fa21a66b769338e1a79a04c156ab3821d170e590",
+         "name" : "Espresso Pizza",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115476075407639158549\"\u003eDaniel Crookston\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAuqbopNpL4_Lk5CvyViygNMas4CxmeLQ3xerGWZ87-BXo3tScZPgIsDbBppXuAfS6pkURKd7JtiNAPkQ82TCABf_MhRU9XVy8I30ZVdrzOQe3qzG2WqhUkYu3A3N72khNEhBuzKA7mzrBECnh8cbEFkldGhQb4duYnPEm_CqbbrpWL9-BamW7Dg",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJFYhmGeh244kRjoBzmNAcmWY",
+         "plus_code" : {
+            "compound_code" : "CV6H+JC Medford, Massachusetts, United States",
+            "global_code" : "87JCCV6H+JC"
+         },
+         "rating" : 4,
+         "reference" : "ChIJFYhmGeh244kRjoBzmNAcmWY",
+         "scope" : "GOOGLE",
+         "types" : [
+            "meal_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 128,
+         "vicinity" : "336 Boston Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.41867999999999,
+               "lng" : -71.108262
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4199683302915,
+                  "lng" : -71.10687376970849
+               },
+               "southwest" : {
+                  "lat" : 42.4172703697085,
+                  "lng" : -71.10957173029149
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c7d41d53ed727d24ea9f02982ccb6a3b73501828",
+         "name" : "Blue Fuji",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3480,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105923394905851556841\"\u003eJay Diran\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAoUmCh83QFyIrDbtHrX_o6x2vfUrA21OG3vTd8yTgFe4aqppNP8gM3UVefL0rNWG6mE7U2K41t8Xtpw27i7dFyE2MxSHSTABAKxnZvlD0jNs95xge84GP_szvxq6-Nw8VEhCCacOg4Z-byo8xaqVPiCm2GhRm4A0vcdtpuz8Eca3wSibyqPqXBw",
+               "width" : 4640
+            }
+         ],
+         "place_id" : "ChIJH_N4ybd244kRX-oRlcrF0L4",
+         "plus_code" : {
+            "compound_code" : "CV9R+FM Medford, Massachusetts, United States",
+            "global_code" : "87JCCV9R+FM"
+         },
+         "price_level" : 2,
+         "rating" : 4.1,
+         "reference" : "ChIJH_N4ybd244kRX-oRlcrF0L4",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 265,
+         "vicinity" : "38 Salem Street, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4210189,
+               "lng" : -71.1329305
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4224782302915,
+                  "lng" : -71.13169246970848
+               },
+               "southwest" : {
+                  "lat" : 42.4197802697085,
+                  "lng" : -71.1343904302915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+         "id" : "e68d07c1a8980780b0660d6c92d10d8fb11aed05",
+         "name" : "Dunkin'",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1080,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114695287080733074767\"\u003eGilvanio Pacheco\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAADzIAVE9VKsq9U-R5hDqVcJuMx8XDHzqhidWKWaZWzga4IfIVd5J3OoyXVX6WTvrtoyZLQ4jjVFdctgOr-y91Su1lNZQQWmCfmpFdTSKyHz_jxi2-xWaqc-qq_sJBfPFEEhD_UL1wAi_nVNjw4AvwWxf_GhT4LF7fAGCGVSZ59bMfsfB1kuBg5w",
+               "width" : 1920
+            }
+         ],
+         "place_id" : "ChIJt57UoPJ244kRVUSiPaNJL9Q",
+         "plus_code" : {
+            "compound_code" : "CVC8+CR Medford, Massachusetts, United States",
+            "global_code" : "87JCCVC8+CR"
+         },
+         "price_level" : 1,
+         "rating" : 4.2,
+         "reference" : "ChIJt57UoPJ244kRVUSiPaNJL9Q",
+         "scope" : "GOOGLE",
+         "types" : [
+            "bakery",
+            "meal_takeaway",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 82,
+         "vicinity" : "4 Harvard Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4116891,
+               "lng" : -71.1223325
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.41309633029151,
+                  "lng" : -71.12091311970849
+               },
+               "southwest" : {
+                  "lat" : 42.41039836970851,
+                  "lng" : -71.12361108029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "28c08721f961875f279d44119a380c5076e41a32",
+         "name" : "Tasty Cafe Boston",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114105251769275176180\"\u003ealine Hans\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA53bhqk2HNY2IqCfG-u1DKVHNMoZDKCzuLA_Ij0PKRzrieb4ees7hxsW4siWszZaxX83mozldtjfvwAWm_aCKD7qPmWadI-kKr0xYgAJmyTKF2fWV-BD93vDkfACXJfi0EhDVHeIxXLCsXPmxeCw0ru9xGhSjqh1bRzmALhA0uFw_GcjR_KdICg",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJQXY-Feh244kRz5SOBb8a3yw",
+         "plus_code" : {
+            "compound_code" : "CV6H+M3 Medford, Massachusetts, United States",
+            "global_code" : "87JCCV6H+M3"
+         },
+         "price_level" : 1,
+         "rating" : 4,
+         "reference" : "ChIJQXY-Feh244kRz5SOBb8a3yw",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 149,
+         "vicinity" : "321 Boston Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4170313,
+               "lng" : -71.1265626
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4183905802915,
+                  "lng" : -71.1250186697085
+               },
+               "southwest" : {
+                  "lat" : 42.4156926197085,
+                  "lng" : -71.1277166302915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "4499c1275a3e01df61eb205499014c526d1111f7",
+         "name" : "Genji Sushi",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "place_id" : "ChIJL8SG9Ot244kRPoxPjx7PMM4",
+         "plus_code" : {
+            "compound_code" : "CV8F+R9 Medford, Massachusetts, United States",
+            "global_code" : "87JCCV8F+R9"
+         },
+         "price_level" : 2,
+         "rating" : 4.7,
+         "reference" : "ChIJL8SG9Ot244kRPoxPjx7PMM4",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 10,
+         "vicinity" : "2151 Mystic Valley Parkway, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4036043,
+               "lng" : -71.12738449999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4048625802915,
+                  "lng" : -71.12611216970849
+               },
+               "southwest" : {
+                  "lat" : 42.4021646197085,
+                  "lng" : -71.1288101302915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "cc874963160fea2d94e3545cfa3ba14a9d313dfd",
+         "name" : "Broadway Eatery",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 803,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109540180782802014459\"\u003eBroadway Eatery\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAlIC6g0DX9u0BwhbG8kPK7ab43K6v0KhlBwswD3Zz3WL8b1QPStsJ8tZKLDNQcfDaGNgt8fJXZa5ozv6nmkDzrDCc2JAesHdwqyYcv6hI2DnJ3nZt6ZTGnm8Xpe95ucIUEhDIWC3hQTIbJSpUuMJBVBjQGhRtJeLHEIz8QNC0KnKjsinllBaxUA",
+               "width" : 1214
+            }
+         ],
+         "place_id" : "ChIJoT05IeJ244kR_NokR1URWkM",
+         "plus_code" : {
+            "compound_code" : "CV3F+C2 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV3F+C2"
+         },
+         "price_level" : 1,
+         "rating" : 4.1,
+         "reference" : "ChIJoT05IeJ244kR_NokR1URWkM",
+         "scope" : "GOOGLE",
+         "types" : [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 70,
+         "vicinity" : "1157 Broadway, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.414634,
+               "lng" : -71.1103126
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4160430302915,
+                  "lng" : -71.10882841970849
+               },
+               "southwest" : {
+                  "lat" : 42.4133450697085,
+                  "lng" : -71.11152638029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+         "id" : "cfae8867621f2416bd68b80afaab4f2692d65377",
+         "name" : "Circle K",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 800,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111482401563576836901\"\u003eCircle K\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAZiYzbtotwHRMI8qH2ggENIsVGKMK2xkxhcVueAqRgL4847ENWUb6S_B5St7r7tPlsVzSBawIgMrlPfsQXisCbak5tmsq9Mx0Ib4TWGeTH9UVgmEEdMcZdK2KuWoTCW12EhChegi6SeUcPKf1fhtQE2_2GhTpH_OdWP6nWLQoDS5S2TRPZzf1Yg",
+               "width" : 1200
+            }
+         ],
+         "place_id" : "ChIJ0_TyPsZ244kRpJsHUoXlVxI",
+         "plus_code" : {
+            "compound_code" : "CV7Q+VV Medford, Massachusetts, United States",
+            "global_code" : "87JCCV7Q+VV"
+         },
+         "price_level" : 1,
+         "rating" : 4,
+         "reference" : "ChIJ0_TyPsZ244kRpJsHUoXlVxI",
+         "scope" : "GOOGLE",
+         "types" : [
+            "convenience_store",
+            "atm",
+            "gas_station",
+            "meal_takeaway",
+            "finance",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 5,
+         "vicinity" : "1 Mystic Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.401584,
+               "lng" : -71.1266012
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4029517302915,
+                  "lng" : -71.12517421970848
+               },
+               "southwest" : {
+                  "lat" : 42.4002537697085,
+                  "lng" : -71.12787218029149
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "148d4a4849d63ca5cb2446b6100877f5d8042390",
+         "name" : "Renee's Cafe",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105117792274492423685\"\u003eKurt Kaiser\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAY2EWyZBy29TrnvhNmWCCT1G-ahABPKFIB5FSXfEIwjK2Nyi-bUQfVdleKqigK846ExKBOFOfgYgxszXaM98NSgswO9jVSBh5XCSK-LAnMatzPCABrXV2Epm0SAUlLKtyEhDU7gh05u1sjk0IA4P66_bXGhRb5XW0JKDl_ns6dnwo4lSoBUeRkQ",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJX787BB5344kRwyNan6FHP6M",
+         "plus_code" : {
+            "compound_code" : "CV2F+J9 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV2F+J9"
+         },
+         "price_level" : 1,
+         "rating" : 4.5,
+         "reference" : "ChIJX787BB5344kRwyNan6FHP6M",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 341,
+         "vicinity" : "198 Holland Street, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.418814,
+               "lng" : -71.111271
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.42008198029151,
+                  "lng" : -71.10995571970848
+               },
+               "southwest" : {
+                  "lat" : 42.41738401970851,
+                  "lng" : -71.1126536802915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "6f6086b7f6ab2a40a1dc7f363738ea90ac19fe10",
+         "name" : "Salvatore's",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1152,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111769183881444149061\"\u003ejoseph callesano\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAphdbC_DpWJGiLq_OMCQDNKUA0PwdB9jMcxGTKc3mFJrNIHJoQuePf-rwRsJmngszRBMIIOYGbTRLHzfbS4p_b0E3eLiEAB0ktR4UHk0-3ZMn16T8FD1wzOtASSJbDFQcEhAW9j6s4TAl3bTlOvaw0-PUGhRQYTHTa60dcyznoS8eRb3MOkvh6w",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJtU0kerh244kRJ25FkOtbkKQ",
+         "plus_code" : {
+            "compound_code" : "CV9Q+GF Medford, Massachusetts, United States",
+            "global_code" : "87JCCV9Q+GF"
+         },
+         "price_level" : 2,
+         "rating" : 4.1,
+         "reference" : "ChIJtU0kerh244kRJ25FkOtbkKQ",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 323,
+         "vicinity" : "55 High Street, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4027726,
+               "lng" : -71.1267484
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4041019802915,
+                  "lng" : -71.12548881970849
+               },
+               "southwest" : {
+                  "lat" : 42.4014040197085,
+                  "lng" : -71.1281867802915
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+         "id" : "c38dbfaf7f6296a9bc99460bad6b9ad73796d433",
+         "name" : "PJ Ryan's",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114062366223132240653\"\u003eEd Holden\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAANFtKic9wUSdsRK2UBdtkPKj-dZeemBFb7QcyiGiQyDboEKZxvhvOBW4Wphv62AFqgijYOY5VAVtG1tnUfBVseLvFzIj4aIYgueDsl1ohmokBoJ53uMBnAUFaDsMX9Zf5EhAuB9LMEMoRsgdPl3f6G6gGGhRQufsdgNgFrHnRWGmRXpfyFH7lEA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJyXiX9-F244kRfHO2XdMTrGg",
+         "plus_code" : {
+            "compound_code" : "CV3F+48 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV3F+48"
+         },
+         "price_level" : 2,
+         "rating" : 4.4,
+         "reference" : "ChIJyXiX9-F244kRfHO2XdMTrGg",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 246,
+         "vicinity" : "239 Holland Street, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.420945,
+               "lng" : -71.131624
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4223617302915,
+                  "lng" : -71.13026171970849
+               },
+               "southwest" : {
+                  "lat" : 42.4196637697085,
+                  "lng" : -71.13295968029149
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "86de9dcf833811a276241e9f43a3aab30efa5ff2",
+         "name" : "Snappy Pattys",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 6444,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102260924343967128597\"\u003eJock Gill\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAz4IjasPXenHtE4fha6_T6-gexK2dYkboz7gqlaZrkZ-KhjWjI4E3pQvDGPy8DaerXAOK409LePxdHWjCSbBe7BhQ_Iz6sIW_a57WNgomCUTW0Gu_j4HcjsIZ0CICWVT7EhDe-JuuL4-CnP9rBIyG0YVeGhR899vhJVvVpbspNnZpbo6a9SeOug",
+               "width" : 6444
+            }
+         ],
+         "place_id" : "ChIJubr7Ru1244kRGJcs7hkNg1U",
+         "plus_code" : {
+            "compound_code" : "CVC9+99 Medford, Massachusetts, United States",
+            "global_code" : "87JCCVC9+99"
+         },
+         "price_level" : 2,
+         "rating" : 4.2,
+         "reference" : "ChIJubr7Ru1244kRGJcs7hkNg1U",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 294,
+         "vicinity" : "454 High Street, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.40073889999999,
+               "lng" : -71.117425
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4021492802915,
+                  "lng" : -71.1160822697085
+               },
+               "southwest" : {
+                  "lat" : 42.3994513197085,
+                  "lng" : -71.11878023029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "0fba2c698968d7fa57da0a9096962a916b24d593",
+         "name" : "Tu Y Yo",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3036,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105117792274492423685\"\u003eKurt Kaiser\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAhBKOAvWHUcRDqaRvhu4dc-gJo0cYKI5vaUdltBmMTNn27RnwUx-sl8wCkOwQ2qBRco7uqXoS1C6ZWw4BVTX1klXpCzLU0dyKkTMVwgS6GKx79UjH9Yu9VNM6TZQswpvWEhA8uzfMgn6JqvsEHu86DevTGhQkVHUrMqmkwT2GTnxcE7xghXIb4g",
+               "width" : 4048
+            }
+         ],
+         "place_id" : "ChIJ_cjpe99244kRXl3v3dt0db0",
+         "plus_code" : {
+            "compound_code" : "CV2M+72 Somerville, Massachusetts, United States",
+            "global_code" : "87JCCV2M+72"
+         },
+         "price_level" : 2,
+         "rating" : 4.6,
+         "reference" : "ChIJ_cjpe99244kRXl3v3dt0db0",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 344,
+         "vicinity" : "858 Broadway, Somerville"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4039904,
+               "lng" : -71.11436359999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4052757302915,
+                  "lng" : -71.11313166970848
+               },
+               "southwest" : {
+                  "lat" : 42.4025777697085,
+                  "lng" : -71.11582963029149
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "9a336ec54bff3bd94bef4eac32fbf9ed8a2d2a27",
+         "name" : "Semolina Kitchen + Bar",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114025619344034350998\"\u003eWayne Goldstein-Chroma360\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAK-YDkW_JiofxawXkjyQ28IYYdOLWXCNqFSHiETfX59f5cbYOLuVVYyAfqxvaISMy4EPS595GFPGQVStsxXzVxZNj6OsV042ZEyhttX_5QQ60iOjznnlUS1YazJGag6njEhCD9W3ri_zGuq7rG7h3gUssGhR82YaiITg3zxrOP-1B_P8ISusDPQ",
+               "width" : 5184
+            }
+         ],
+         "place_id" : "ChIJbxWWT9l244kRHR9aBGENL-0",
+         "plus_code" : {
+            "compound_code" : "CV3P+H7 Medford, Massachusetts, United States",
+            "global_code" : "87JCCV3P+H7"
+         },
+         "price_level" : 2,
+         "rating" : 4.5,
+         "reference" : "ChIJbxWWT9l244kRHR9aBGENL-0",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 336,
+         "vicinity" : "572 Boston Avenue, Medford"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.4099812,
+               "lng" : -71.1393626
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.4112100302915,
+                  "lng" : -71.1381199197085
+               },
+               "southwest" : {
+                  "lat" : 42.4085120697085,
+                  "lng" : -71.14081788029151
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/cafe-71.png",
+         "id" : "f9a0788a9899afac457ae3b5aa289f1379ad3d3f",
+         "name" : "Dunkin'",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1192,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101525010585942968295\"\u003eDunkin&#39;\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAt_lr69co7vjdkI4y3uC-4h6YUEFQFuxgVqVZDSi-6sP623h1q7E0-JARZjBfXR44rcPURGuOw9KjTQj0F1gEVBevBFWqUlB1_ojY8KCl2cs7vEBhDAxrpkjGUGzsiUj_EhAW-raUwazCrDEbZ287J4L8GhS26ulHMAgCbZN1WNaBfC-TXOmYnQ",
+               "width" : 2119
+            }
+         ],
+         "place_id" : "ChIJmS2vXfl244kRUB1XzkiVjHw",
+         "plus_code" : {
+            "compound_code" : "CV56+X7 Arlington, Massachusetts, United States",
+            "global_code" : "87JCCV56+X7"
+         },
+         "price_level" : 1,
+         "rating" : 4.1,
+         "reference" : "ChIJmS2vXfl244kRUB1XzkiVjHw",
+         "scope" : "GOOGLE",
+         "types" : [
+            "bakery",
+            "meal_takeaway",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+         ],
+         "user_ratings_total" : 146,
+         "vicinity" : "101 Broadway, Arlington"
+      }
+   ],
+   "status" : "OK"
+}

@@ -33,30 +33,15 @@ function geocodeLatLng(geocoder, leaflet_latlng) {
             }
         }
         else {
-            document.getElementById('address').value = 'Error: ' + status;
+            if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                document.getElementById('address').value = "Query limit reached, please click marker again."
+            }
+            else {
+                document.getElementById('address').value = 'Error: ' + status;
+            }
         }
     });
 }
-
-
-
-// Their geocoder function... nothing is different, except the results[1] :/
-// var geocoder = new google.maps.Geocoder;
-
-// function geocodeLatLng(geocoder, lat, lng) {
-//   var latlng = {lat: lat, lng: lng};
-//   geocoder.geocode({'location': latlng}, function(results, status) {
-//     if (status === 'OK') {
-//       if (results[1]) {
-//             document.getElementById('address').value = results[0].formatted_address;
-//       } else {
-//             document.getElementById('address').value = 'No results found';
-//       }
-//     } else {
-//       document.getElementById('address').value = 'Geocoder failed due to: ' + status;
-//     }
-//   });
-// }
 
 /*                                                                      *
  *                  SETTING UP LEAFLETS API                             *
@@ -109,6 +94,7 @@ function addMarker(latlng, marker) {
     mymap.setView(latlng, mymap.getZoom());
     geocodeLatLng(geocoder, latlng);
 
+    // Updates scores
     for (var name in AllScores) {
         document.getElementById(name).value = calculatescore(latlng.lat, latlng.lng, AllScores[name]);
     }
@@ -125,6 +111,7 @@ function addMarker(latlng, marker) {
         geocodeLatLng(geocoder, position);
         mymap.setView(new L.latLng(position.lat, position.lng), mymap.getZoom());
 
+        // Updates scores
         for (var name in AllScores) {
             document.getElementById(name).value = calculatescore(position.lat, position.lng, AllScores[name]);
         }
@@ -154,26 +141,42 @@ function markerOnClick(e) {
 }
 
 
-/// Remove current marker, update scores and re-orient map to previous marker
-function removeMarker(marker) {
-    var idx = markercontainer.indexOf(marker);
+// Remove current marker, re-orient to previous marker and update scores
+var removeButton = document.getElementById("removeMarker");
+removeButton.onclick = function() {
+    var idx = markercontainer.indexOf(currMarker);
     if (idx > -1) {
         markercontainer.splice(idx, 1);
-        mymap.removeLayer(marker);
+        mymap.removeLayer(currMarker);
 
-        // Re-orient to previous marker
-        markercontainer[markercontainer.length - 1].click();
+        // Re-orient to previous marker, if any
+        if (markercontainer.length > 0) {
+            currMarker = markercontainer[markercontainer.length - 1];
+
+            var latlng = currMarker.getLatLng();
+            for (var name in AllScores) {
+                document.getElementById(name).value = calculatescore(latlng.lat,latlng.lng, AllScores[name]); 
+            }
+            geocodeLatLng(geocoder, latlng);
+            mymap.setView(latlng, mymap.getZoom());
+        }
+        else {
+            // No markers left, so clear scores
+            document.getElementById('address').value = "(No Active Markers)"
+            document.getElementById('average').value = "";
+
+            for (var name in AllScores) {
+                document.getElementById(name).value = "";
+            }
+            currMarker = undefined;
+        }
     }
     else {
         console.log("Marker not found, could not remove.");
     }
-}
-
-
-var removeButton = document.getElementById("removeMarker")
-
-
+};
  
+
 
 /// Function for adding multiple heatmaps together ///
 function layertrigger(keyword) {
@@ -296,49 +299,10 @@ mymap.addLayer(rect);
 /// Clears all score/address values before refreshing page ///
 window.onbeforeunload = function(e) {
     document.getElementById('address').value = "(No Active Markers)";
-    document.getElementById('avgdisplay').value = "";
+    document.getElementById('average').value = "";
 
     for (var name in AllScores) {
         document.getElementById(name).value = "";
     }
 
 }
-
-
-
-
-
-
-
-/*                                                                      *
- *                  SETTING UP GOOGLE MAPS API                          *
- *                                                                      */
-
-// // Create the script tag, set the appropriate attributes
-// var script = document.createElement('script');
-// script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&callback=initMap';
-// script.defer = true;
-// script.async = true;
-
-// var myC = {lat: 42.412660, lng: -71.123060};
-
-// // Attach your callback function to the `window` object
-// window.initMap = function() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: myC,
-//         zoom: 12
-//     });
-// };
-// document.head.appendChild(script);
-
-
-// // Add movable marker        -- DOESN'T WORK --
-// var marker = new google.maps.Marker({
-//     position: myC,
-//     animation:google.maps.Animation.DROP
-// });
-// marker.setMap(map);
-
-// window.google.maps.e.addListener(marker, 'click', function(e) {
-//     placeMarker(e.latLng);
-// });

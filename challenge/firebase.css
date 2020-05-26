@@ -114,17 +114,15 @@ h1 {
 
 
 #currMarker {
-    font-size: 11px;
+    font-size: 12px;
     font-family: 'Arima Madurai';
     position: absolute;
     top: 67px;
     left: 740px;
     width: 300px;
     text-align: center;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    background-color: lightgray;
-    font-weight: bold;
+    background-color: #b6e59e;
+    color: black;
 }
 
 
@@ -143,7 +141,7 @@ h1 {
     font-size: 15px;
 }
 
-#avgdisplay {
+#average {
     position:absolute; 
     top: 111px; 
     left: 913px; 
@@ -162,10 +160,16 @@ h1 {
     font-family: 'Arima Madurai';
     padding: 5.5px 17px;
     background-color: #75cff0;
-    border: none;
+    border: 1px solid black;
     font-size: 14px;
     font-weight: bold;
+    transition-duration: 0.2s;
 }
+
+#showscores:hover {
+    background-color: #a5ebec;
+}
+
 
 #allscores {
     visibility: hidden;
@@ -220,8 +224,17 @@ h1 {
     position: absolute;
     top: 503px;
     left: 739px;
-    background-color: #810d70;
+    background-color: #0023b3;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
     font-family: 'Arima Madurai';
     font-size: 13px;
+    transition-duration: 0.2s;
+}
+
+#removeMarker:hover {
+    /* #5d20a1 */
+    background-color: #4d158d;
     color: white;
 }

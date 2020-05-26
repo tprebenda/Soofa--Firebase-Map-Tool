@@ -220,6 +220,8 @@ h1 {
     /* text-align: center; */
 }
 
+
+/*** REMOVE MARKER BUTTON ***/
 #removeMarker {
     position: absolute;
     top: 503px;
@@ -234,7 +236,6 @@ h1 {
 }
 
 #removeMarker:hover {
-    /* #5d20a1 */
     background-color: #4d158d;
     color: white;
 }

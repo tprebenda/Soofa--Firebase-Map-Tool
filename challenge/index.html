@@ -4,17 +4,8 @@
         <meta charset="UTF-8">
         <title>Soofa Firebase Tool</title>
         <link href="firebase.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=PT Sans Narrow' rel='stylesheet'>
         <!-- Google Maps API -->
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=visualization"></script> -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=places"></script>
-        <!-- Other Google Apis -->
-        <!-- <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/common.js"></script>
-        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/util.js"></script>
-        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/geocoder.js"></script>
-        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/controls.js"></script>
-        <script src="https://maps.googleapis.com/maps-api-v3/api/js/40/12/places_impl.js"></script> -->
         <!-- Leaflet API -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
             integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -22,20 +13,24 @@
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
+        <!-- Google fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Arima Madurai' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=PT Sans Narrow' rel='stylesheet'>
     </head>
     <h1>Soofa Firebase Map</h1>
     <body>
         <div id="map"></div>
-            
         <div>
             <input id="searchAddress" type="text" placeholder="Enter Location for Marker" class="pac-target-input" autocomplete="off"> 
         </div>
+
         <div class = "mapInfo">
             <p class="instructions"><b>Click on the map to create a draggable marker.</b></p>
             <p>Change cities by selecting from 'Pick a City.'<br>Choose heatmap renderings with 'Pick Heatmap Layers'!</p> 
             <p class="instructions"><b>Need help?</b></p> 
             <p>If the heatmaps are not displaying, try changing your browser's security settings. </p>
         </div>
+
         <form id = "heatmapselector">
             <div class="multiselect">
                 <div class="selectBox" onclick="showCheckboxes()">
@@ -89,6 +84,7 @@
             <label id="avgbutton" for="average">Average Score:</label>
             <input id="average" class="smallscores" type="text" readonly="">
         </form>
+
         <button id="showscores">Show All Scores:</button>
         <form id="allscores">
             <p>
@@ -131,11 +127,8 @@
                 <label for="walkscore">Walking Score:</label>
                 <input id="walkscore" class="smallscores" type="text" readonly="">
             </p>
-            <!-- <p>
-                <label for="address">Location of Marker:</label>
-                <input id="address" type="text" readonly="">    
-            </p> -->
         </form>
+
         <form id="markerAddress">
             <label for="address"><b>Location of Current Marker:</b></label>
             <input id="address" type="text" value="(No active markers)" readonly="">   
@@ -154,7 +147,7 @@
         <!-- API data files -->
         <script src="data/defaultHeatdata.js"></script>
 
-        <!-- Most of the javascript -->
+        <!-- Source code -->
         <script src="scores.js"></script>
         <script src="mapping.js"></script>
     </body>

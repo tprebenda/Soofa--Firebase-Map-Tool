@@ -168,6 +168,7 @@ removeButton.onclick = function() {
             for (var name in AllScores) {
                 document.getElementById(name).value = "";
             }
+
             currMarker = undefined;
         }
     }

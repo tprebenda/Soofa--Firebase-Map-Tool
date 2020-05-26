@@ -1,7 +1,5 @@
 /***********    SCORING SECTION     ************/
 
-/// Return scores between 0 and 10 ///
-
 /// Code for showing all scores ///
 var button = document.getElementById('showscores');
 var shown = false;
@@ -21,6 +19,7 @@ button.onclick = function() {
 }
 
 
+/// Return scores between 0 and 10 ///
 function calculatescore(lat, lng, heatmapdata){
     score = closestscore(lat, lng, heatmapdata.data);
     return Math.round(1000*score/heatmapdata.max)/100; // Returns two decimal places

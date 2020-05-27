@@ -75,6 +75,8 @@ There were still a number of things I would have liked to change to improve/add 
 
 -- Improving the remove marker function: I wanted to store the associated geocoder address of each marker on the map in a separate variable, so as to reduce the risk of reaching the Over Query GMaps Limit that comes from calling the geocoder too many times in a short period (by quickly adding/removing markers). I know there is a way to do this, but it is tricky and most suggestions involve modifying the (private) data members of markers, which isn't really good practice. If I had more time, I would research this more.
 
+-- I also wanted to add a feature that would highlight the current marker selected (i.e. by making that marker a different color), which would make it easier to discern which marker is the 'Current Marker' when there are multiple on the map.
+
 -- Obviously, I would fix the data from the other locations that were not copied properly. 
 
 -- I wanted to add to the onbeforeload function the capacity to reset the heatmap checkboxes and the current city. (It's an annoying problem that doesn't go away with the seemingly very easy solution that I was trying.)

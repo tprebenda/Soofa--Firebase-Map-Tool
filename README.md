@@ -24,3 +24,9 @@ My own implementation of the Soofa Firebase Map Tool.
 -- Organized all scores in a Current Marker "space", adjacent to map for easy viewing and visual transition from checking scores to placing/updating markers.
 
 -- Placed map tool instructions smoothly under the map, adjacent to associated city/heatmap selection lables.
+
+
+
+**Javascript Changes:**
+
+

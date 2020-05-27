@@ -81,4 +81,6 @@ There were still a number of things I would have liked to change to improve/add 
 
 -- There are also a number of opportunities to make functions more modular, but they involve changing a lot of syntax and it would just take some time.
 
-Thank you so much for this opportunity! I have learned so much from this project alone, and I am very excited to learn more! I hope you enjoy my new Firebase Map Tool!
+**Thank you so much for this opportunity! I have learned so much from this project alone, and I am very excited to learn more! **
+
+**I hope you enjoy my new Firebase Map Tool!**

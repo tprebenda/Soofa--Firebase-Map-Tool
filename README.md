@@ -9,7 +9,7 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 
 
-                                            --- CHANGES MADE FROM ORIGINAL TOOL ---
+                                          --- CHANGES MADE FROM ORIGINAL TOOL ---
 
 
  **UI changes:**
@@ -64,7 +64,9 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 -- In closestscore() function, removed unnecessary local variables to free up more memory.
 
 
+
                                                  --- Next Steps ---
+
 
 
 There were still a number of things I would have liked to change to improve/add to the application, but I just didn't get to them. These include:

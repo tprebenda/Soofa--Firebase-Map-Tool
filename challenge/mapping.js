@@ -312,32 +312,32 @@ window.onbeforeunload = function(e) {
 
 
 /// Changes city, resets scores and data values
-// document.getElementById('selectCity').onchange = function() {
-//     var myScript = document.createElement('script');
-//     var file = (this.value.split(",")[0] != 'Cambridge') ? this.value.split(",")[0] : 'Default';
+document.getElementById('selectCity').onchange = function() {
+    var myScript = document.createElement('script');
+    var file = (this.value.split(",")[0] != 'Cambridge') ? this.value.split(",")[0] : 'Default';
 
-//     // To run on local server, change '/challenge/data/' back to '/data/'
-//     myScript.setAttribute('src', '/data/' + file + 'Heatdata.js');
-//     document.head.appendChild(myScript);
+    // To run on local server, change '/challenge/data/' back to '/data/'
+    myScript.setAttribute('src', '/data/' + file + 'Heatdata.js');
+    document.head.appendChild(myScript);
 
-//     myScript.onload = function() {
-//         compositelayer.setData({max:0, data: []});
-//         document.getElementById("heatmapselector").reset();
-//         mymap.setView(new L.LatLng(lat, lng), myZoom); 
-//         for (var i = 0; i < markercontainer.length; i++) {
-//             mymap.removeLayer(markercontainer[i]);
-//         }
-//         markercontainer = [];
-//         layersactive = [];
-//         mymap.removeLayer(rect);
-//         rect = L.rectangle([northeastcoord, southwestcoord], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
-//         mymap.addLayer(rect);
+    myScript.onload = function() {
+        compositelayer.setData({max:0, data: []});
+        document.getElementById("heatmapselector").reset();
+        mymap.setView(new L.LatLng(lat, lng), myZoom); 
+        for (var i = 0; i < markercontainer.length; i++) {
+            mymap.removeLayer(markercontainer[i]);
+        }
+        markercontainer = [];
+        layersactive = [];
+        mymap.removeLayer(rect);
+        rect = L.rectangle([northeastcoord, southwestcoord], { dashArray: "10", color: "#4d4d4d",  opacity: .8,  fillOpacity: 0});
+        mymap.addLayer(rect);
 
-//         for (var name in AllScores) {
-//             document.getElementById(name).value = "";
-//         }
-//         document.getElementById('address').value = "";
-//         document.getElementById('address').value = "(No Active Markers)";
-//         // showCheckboxes();
-//     };
-// }
+        for (var name in AllScores) {
+            document.getElementById(name).value = "";
+        }
+        document.getElementById('address').value = "";
+        document.getElementById('address').value = "(No Active Markers)";
+        // showCheckboxes();
+    };
+}

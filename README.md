@@ -62,3 +62,20 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
                                                     2) scores.js
 
 -- In closestscore() function, removed unnecessary local variables to free up more memory.
+
+
+**Next steps:**
+
+There were still a number of things I would have liked to change to improve/add to the application, but I just didn't get to them. These include:
+
+-- Adding a 'Total Marker Score' display, which stores the average score values of *all* markers currently on the map. I would also store an array that contains the markers of the top 3 (somewhat arbitrary value) scores, and I would add a button that allows you to remove all markers except for these top 3. 
+
+-- Improving the remove marker function: I wanted to store the associated geocoder address of each marker on the map in a separate variable, so as to reduce the risk of reaching the Over Query GMaps Limit that comes from calling the geocoder too many times in a short period (by quickly adding/removing markers). I know there is a way to do this, but it is tricky and most suggestions involve modifying the (private) data members of markers, which isn't really good practice. If I had more time, I would research this more.
+
+-- Obviously, I would fix the data from the other locations that were not copied properly. 
+
+-- I wanted to add to the onbeforeload function the capacity to reset the heatmap checkboxes and the current city. (It's an annoying problem that doesn't go away with the seemingly very easy solution that I was trying.)
+
+-- There are also a number of opportunities to make functions more modular, but they involve changing a lot of syntax and it would just take some time.
+
+Thank you so much for this opportunity! I have learned so much from this project alone, and I am very excited to learn more! I hope you enjoy my new Firebase Map Tool!

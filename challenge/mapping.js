@@ -164,13 +164,14 @@ removeButton.onclick = function() {
             // No markers left, so clear scores
             document.getElementById('address').value = "(No Active Markers)"
             document.getElementById('average').value = "";
+            currMarker = undefined;
 
             for (var name in AllScores) {
                 document.getElementById(name).value = "";
             }
-            
-            mymap.setView(mymap.getCenter(), mymap.getZoom());
-            currMarker = undefined;
+         
+            // Trying to return to center of map... doesn't work :/
+            // mymap.setView(mymap.getCenter(), mymap.getZoom());
         }
     }
     else {

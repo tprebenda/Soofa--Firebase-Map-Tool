@@ -8,9 +8,15 @@ User can also use the Google Searchbox to place a marker at a specific location 
 The 'Remove Marker' button allows you to remove most recently placed marker, and re-orient towards previous marker (if any exist).
 
 
---- CHANGES MADE FROM ORIGINAL TOOL ---
+-
+--
+--- CHANGES MADE FROM ORIGINAL TOOL:
+--
+-
 
+-
  **UI changes:**
+-
  
  -- Relevant heatmap is only present on a small part of the map, especially with a predefined radius, so I made the leaflet map smaller to encompass just past these large data points at the extremeties. This created more space below the map, which allowed me to better place elements that interact with it. On that note...
  
@@ -33,8 +39,10 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 -- Placed map tool instructions smoothly under the map, adjacent to associated city/heatmap selection lables for easy visual transition and easy application of instructions.
 
 
-
+-
 **Javascript Changes:**
+-
+
 
                                                     1) mapping.js
  

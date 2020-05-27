@@ -318,7 +318,6 @@ document.getElementById('selectCity').onchange = function() {
 
     // To run on local server, change 'challenge/data/' back to '/data/'
     myScript.setAttribute('src', 'challenge/data/' + file + 'Heatdata.js');
-    console.log('challenge/data/' + file + 'Heatdata.js');      // REMOVE
     document.head.appendChild(myScript);
 
     myScript.onload = function() {

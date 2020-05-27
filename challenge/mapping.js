@@ -315,7 +315,9 @@ window.onbeforeunload = function(e) {
 document.getElementById('selectCity').onchange = function() {
     var myScript = document.createElement('script');
     var file = (this.value.split(",")[0] != 'Cambridge') ? this.value.split(",")[0] : 'Default';
-    myScript.setAttribute('src', 'data/' + file + 'Heatdata.js');
+
+    // To run on local server, change '/challenge/data/' back to '/data/'
+    myScript.setAttribute('src', '/challenge/data/' + file + 'Heatdata.js');
     document.head.appendChild(myScript);
 
     myScript.onload = function() {

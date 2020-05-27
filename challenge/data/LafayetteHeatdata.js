@@ -9,7 +9,7 @@
 
 var lat= 30.2241;
 var lng= -92.0198;
-var myZoom = 13;
+var myZoom = 11;
 
 var northeastcoord = [30.296503, -91.969376];
 var southwestcoord = [30.127487,  -92.10776200000001];

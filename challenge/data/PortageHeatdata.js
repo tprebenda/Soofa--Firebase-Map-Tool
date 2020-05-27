@@ -15,7 +15,7 @@ var AllScores = {"googlefood": googlefoodData, "googlecommunity": googlecommunit
 
 var lat = 42.2012;
 var lng = - 85.5800;
-var myZoom = 13;
+var myZoom = 12;
 
 for (var key in AllScores){
 	var max = AllScores[key].max;

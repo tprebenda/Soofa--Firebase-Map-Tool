@@ -10,7 +10,6 @@ def parser(filename):
 
     with open(filename) as f:
         jsonData = json.load(f)
-        # print(data['results'][0]['geometry']['location']['lat'])
     
 
     dataF = open(split[0] + "/heatdata.js", "a")

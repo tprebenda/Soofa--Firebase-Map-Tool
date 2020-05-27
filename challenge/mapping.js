@@ -269,7 +269,7 @@ mymap.on('moveend', function(e) {
     searchBox.setBounds(googleBounds);
 });
 
-/// Uses given searchbox address to add marker to map (by calling addMarker()), and updates scores ///
+/// Uses given searchbox address to add marker to map and updates scores ///
 searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     if (places.length == 0) {

@@ -1,15 +1,19 @@
 # Soofa--Firebase-Map-Tool
-My own implementation of the Soofa Firebase Map Tool.
+My implementation of the Soofa Firebase Map Tool.
+
+Allows user to set heatmap data and place markers on the map to discern ideal locations for Soofa Talk signs, based on given heatmap data displayed in scores.
+User can also use the Google Searchbox to place a marker at a specific location with a given address.
+The 'Remove Marker' button allows you to remove most recently placed marker, and re-orient towards previous marker (if any exist).
 
 
 --- CHANGES MADE FROM ORIGINAL TOOL ---
 
  **UI changes:**
-1) General repositioning of application elements-
  
  -- Relevant heatmap is only present on a small part of the map, especially with a predefined radius, so I made the leaflet map smaller to encompass just past these large data points at the extremeties. This created more space below the map, which allowed me to better place elements that interact with it. On that note...
  
--- The heatmap checkbox selector has been relocated beneath the map, for a more natural transition between activating heatlayers and studying the map. The same goes for the city locator. **NOTE:** The city change selection is present, but the corresponding function has not been implemented-- I was struggling to get access to the heatmap data of other locations. I attempted to write my own Python script for translating the data from jsons (parser.py, in the challenge/data folder), but I would have needed more time to get access to all the API's and then work through the data from each. I assumed this would be alright, considering it's an extremely easy addition with the data files on hand.
+-- The heatmap checkbox selector has been relocated beneath the map, for a more natural transition between activating heatlayers and studying the map. The same goes for the city selector. 
+**NOTE:** The city selector is... semi-functional. I was able to copy the Soofa heatmap data for most of the cities, but some of them must not have copied over correctly, specifically Providence, Trenton, and Arlington Heights.\. I attempted to write my own Python script for translating new data from jsons (parser.py, in the challenge/data folder), but it would have entailed considerable work, and I had already found your data (it just doesn't work, for whatever reason).  I assumed it would be alright to leave it in this state, considering it's an extremely easy fix with the data files on hand.
 
 -- Introduced new title (header) to the site: "Soofa Firebase Tool", which I placed in line with the map on the left side of the window. I took the signature Soofa red from your website :)
 
@@ -29,4 +33,26 @@ My own implementation of the Soofa Firebase Map Tool.
 
 **Javascript Changes:**
 
+                                                      1) mapping.js
+ 
+-- *General:* I modified a number of variables and function arguments to rely more on local variables, and therefore optimize performance by reducing how far the engine has to dive into the scope chain to access these values. I also reduced the number of 'get' function calls when there were already local variables on hand.
 
+-- Geocoder: Added display change to tell user when query limit has been reached (caused by placing/removing too many markers in a short amount of time... more on this later). I also removed the many local variables that were initialized to the return value of the geocoder function, since these values were never used and were therefore wasting memory.
+
+-- Changed map tile layer to be more pleasant (at least in my opinion)
+
+-- Created AddMarker() function to improve modularity, since both map.onClick and Google Searchbox functionality had almost identical code that could be moved into a single function.
+
+-- Added marker drag timeout to solve the issue of 'fast dragging'- a leaflet bug that causes marker propogation when you drag a marker too quickly.
+
+-- Added Remove Marker functionality- I was frustrated by having to refresh the page every time I wanted to place new markers, so I added a currMarker variable to keep track of the most recently selected marker, and a button to remove this marker. This function also resets the scores/address display to that of the previous marker. 
+
+-- Simplified and optimized Google Searchbox functionality, by employing the more-modular AddMarker() function and also by eliminating unnecessary function calls to access variables/data. The input address is also cleared after being searched.
+
+-- Also added Searchbox bias functionality, which causes Searchbox suggestions to be biased towards the current map pane for faster Searchbox use.
+
+-- Added onbeforeunload function to clear all scores/addresses when the page reloads after a refresh.
+
+                                                          2) scores.js
+
+-- In closestscore() function, removed unnecessary local variables to free up more memory.

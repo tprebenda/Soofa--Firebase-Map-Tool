@@ -19,7 +19,7 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
  
 -- The heatmap checkbox selector has been relocated beneath the map, for a more natural transition between activating heatlayers and studying the map. The same goes for the city selector. 
 
-**NOTE:** The city selector is... semi-functional. I was able to copy the Soofa heatmap data for most of the cities, but some of them must not have copied over correctly, specifically Providence, Trenton, and Arlington Heights.\. I attempted to write my own Python script for translating new data from jsons (parser.py, in the challenge/data folder), but it would have entailed considerable work, and I had already found your data (it just doesn't work, for whatever reason).  I assumed it would be alright to leave it in this state, considering it's an extremely easy fix with the data files on hand.
+    *Note:* The city selector is... semi-functional. I was able to copy the Soofa heatmap data for most of the cities, but some of them must not have copied over correctly, specifically Providence, Trenton, and Arlington Heights.\. I attempted to write my own Python script for translating new data from jsons (parser.py, in the challenge/data folder), but it would have entailed considerable work, and I had already found your data (it just doesn't work, for whatever reason).  I assumed it would be alright to leave it in this state, considering it's an extremely easy fix with the data files on hand.
 
 -- Introduced new title (header) to the site: "Soofa Firebase Tool", which I placed in line with the map on the left side of the window. I took the signature Soofa red from your website :)
 

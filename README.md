@@ -9,7 +9,7 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 
 
---- CHANGES MADE FROM ORIGINAL TOOL ---
+                                            --- CHANGES MADE FROM ORIGINAL TOOL ---
 
 
  **UI changes:**
@@ -39,7 +39,7 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 **Javascript Changes:**
 
-                                                    1) mapping.js
+               1) mapping.js
  
 -- *General:* I modified a number of variables and function arguments to rely more on local variables, and therefore optimize performance by reducing how far the engine has to dive into the scope chain to access these values. I also reduced the number of 'get' function calls when there were already local variables on hand.
 
@@ -59,12 +59,13 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 -- Added onbeforeunload function to clear all scores/addresses when the page reloads after a refresh.
 
-                                                    2) scores.js
+                2) scores.js
 
 -- In closestscore() function, removed unnecessary local variables to free up more memory.
 
 
-**Next steps:**
+                                                 --- Next Steps ---
+
 
 There were still a number of things I would have liked to change to improve/add to the application, but I just didn't get to them. These include:
 

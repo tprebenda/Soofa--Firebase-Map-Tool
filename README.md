@@ -77,6 +77,8 @@ There were still a number of things I would have liked to change to improve/add 
 
 -- I also wanted to add a feature that would highlight the current marker selected (i.e. by making that marker a different color), which would make it easier to discern which marker is the 'Current Marker' when there are multiple on the map.
 
+-- After removing the last marker from the map, I would have liked to recenter the map view it to its original position.
+
 -- Obviously, I would fix the data from the other locations that were not copied properly. 
 
 -- I wanted to add to the onbeforeload function the capacity to reset the heatmap checkboxes and the current city. (It's an annoying problem that doesn't go away with the seemingly very easy solution that I was trying.)

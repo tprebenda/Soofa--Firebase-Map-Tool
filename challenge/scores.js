@@ -32,12 +32,8 @@ function closestscore (lat, lng, arr) {
     var bestindex = 0;
 
     for (i = 1; i < arr.length; i++){
-        // currlat = arr[i].lat;
-        // currlng = arr[i].lng;
         currdist = Math.pow(Math.abs(lat - arr[i].lat), 2) + Math.pow(Math.abs(lng - arr[i].lng), 2);
         if (currdist < bestdist) {
-            // bestlat = currlat;
-            // bestlng = currlng;
             bestindex = i;
             bestdist = currdist;
         }

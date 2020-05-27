@@ -168,7 +168,8 @@ removeButton.onclick = function() {
             for (var name in AllScores) {
                 document.getElementById(name).value = "";
             }
-
+            
+            mymap.setView(mymap.getCenter(), mymap.getZoom());
             currMarker = undefined;
         }
     }

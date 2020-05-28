@@ -209,12 +209,12 @@ h1 {
 #markerAddress label {
     font-family: 'Arima Madurai';
     font-size: 12.9px;
-    padding-right: 6px;
+    padding-right: 8.5px;
 }
 
 #markerAddress input {
     width: 300px;
-    padding-left: 5px;
+    padding-left: 2px;
     font-size: 12px;
     font-family: 'Arima Madurai';
     /* text-align: center; */

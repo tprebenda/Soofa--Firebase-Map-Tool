@@ -209,7 +209,7 @@ h1 {
 #markerAddress label {
     font-family: 'Arima Madurai';
     font-size: 12.9px;
-    padding-right: 2px;
+    padding-right: 6px;
 }
 
 #markerAddress input {
@@ -224,7 +224,7 @@ h1 {
 /*** REMOVE MARKER BUTTON ***/
 #removeMarker {
     position: absolute;
-    top: 503px;
+    top: 60%;
     left: 739px;
     background-color: #0023b3;
     color: white;

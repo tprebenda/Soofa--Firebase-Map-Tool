@@ -214,7 +214,7 @@ h1 {
 
 #markerAddress input {
     width: 300px;
-    padding-left: 2px;
+    padding-left: 5px;
     font-size: 12px;
     font-family: 'Arima Madurai';
     /* text-align: center; */
@@ -224,7 +224,7 @@ h1 {
 /*** REMOVE MARKER BUTTON ***/
 #removeMarker {
     position: absolute;
-    top: 60%;
+    top: 501px;
     left: 739px;
     background-color: #0023b3;
     color: white;

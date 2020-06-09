@@ -1,9 +1,13 @@
+<!-- THIS IS A TEST FILE, TO CHANGE CSS PROPERTIES OF THE OLD ONE WITHOUT -->
+<!--                 MESSING UP THE GITHUB PAGES DISPLAY                  -->
+
+
 <!DOCTYPE html>
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="UTF-8">
         <title>Soofa Firebase Tool</title>
-        <link href="firebase.css" rel="stylesheet">
+        <link href="updated_fire.css" rel="stylesheet">
         <!-- Google Maps API -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR55aptcBIiYUnfqlSQKvg8WjPg2dScqA&libraries=places"></script>
         <!-- Leaflet API -->
@@ -70,12 +74,12 @@
             <select id="selectCity">
                 <option value="default">Pick a City!</option>
                 <option value="Cambridge">Cambridge MA</option>
+                <option value="Providence">Providence RI</option>
+                <option value="Trenton">Trenton NJ</option>
                 <option value="Cuero">Cuero TX</option>
                 <option value="Portage">Portage MI</option>
                 <option value="Lafayette">Lafayette LA</option>
-                <!-- <option value="Providence">Providence RI</option>
-                <option value="Trenton">Trenton NJ</option>
-                <option value="ArlingtonHeights">Arlington Heights IL</option> -->
+                <option value="ArlingtonHeights">Arlington Heights IL</option>
             </select>
         </form>
 
@@ -129,25 +133,26 @@
             </p>
         </form>
 
-        <form id="markerAddress">
+        <form id="markerMaintenance">
             <label for="address"><b>Location of Current Marker:</b></label>
-            <input id="address" type="text" value="(No active markers)" readonly="">   
+            <input id="address" type="text" value="(No active markers)" readonly="">
+            <button id="removeMarker">Remove Marker</button>   
         </form>
 
-        <button id="removeMarker">Remove Marker</button>
+        <!-- <button id="removeMarker">Remove Marker</button> -->
 
         <!-- Change if pathing is not the same! -->
 
         <!-- Leaflet/heatmap related plugins -->
-        <script src="plugins/heatmap.js"></script>
-        <script src="plugins/leaflet-heatmap.js"></script>
+        <script src="../plugins/heatmap.js"></script>
+        <script src="../plugins/leaflet-heatmap.js"></script>
 
         <!-- API data files -->
-        <script src="data/DefaultHeatdata.js"></script>
+        <script src="../data/DefaultHeatdata.js"></script>
 
         <!-- Source code -->
-        <script src="scores.js"></script>
-        <script src="mapping.js"></script>
+        <script src="../scores.js"></script>
+        <script src="../mapping.js"></script>
 
         <!-- TESTING- REMOVE COMMENTS TO RUN -->
         <!-- <script src="test/test.js"></script> -->

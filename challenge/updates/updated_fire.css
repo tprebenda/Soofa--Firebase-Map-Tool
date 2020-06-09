@@ -1,0 +1,244 @@
+/* THIS IS A TEST FILE, TO CHANGE CSS PROPERTIES OF THE OLD ONE WITHOUT   *
+ *               MESSING UP THE GITHUB PAGES DISPLAY                      */
+
+html {
+    font-size: 14px; 
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: 'Arima Madurai';
+    font-size: 35px;
+    position: absolute;
+    left: 10px;
+    top: -23px;
+    color: #f44336;
+}
+
+
+/*** MAP AND SEARCHBOX ***/
+#map {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    position: absolute;
+    top: 79px;
+    height: 420px;
+    width: 700px;
+    left: 10px;
+}
+
+#searchAddress {
+    position: absolute;
+    top: 51px;
+    left: 10px;
+    width: 345px;
+    height:20px;
+    border-style: groove;
+}
+
+
+
+/*** MAP INSTRUCTIONS ***/
+.mapInfo {
+    position: absolute;
+    top: 507px;
+    left: 10px;
+    width: 320px;
+    border-left: 1px solid #f44336;
+    border-top: 3px solid #f44336;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 12px;
+    font-family: sans-serif;
+    
+}
+
+.instructions {
+    font-size: 14px;
+}
+
+
+/*** HEATMAP CHECKBOXES ***/
+#heatmapselector {
+    font-family: sans-serif;
+    position: absolute;
+    top: 507px;
+    left: 530px;
+    height: 10px;
+}
+
+.multiselect {
+    width: 182px;
+}
+  
+.selectBox {
+    position: absolute;
+}
+  
+.selectBox select {
+    width: 100%;
+}
+  
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+  
+#checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    font-weight:100;
+}
+  
+#checkboxes label {
+    display: block;
+}
+
+
+/*** CHOOSING CITY ***/
+#cityselection {
+    position: absolute;
+    top: 507px;
+    left: 367px;
+}
+
+
+/*** For all score Displays ***/
+.smallscores {
+    font-size: 12px;
+    font-family: 'Arima Madurai';
+    text-align: center;
+}
+
+
+#currMarker {
+    font-size: 12px;
+    font-family: 'Arima Madurai';
+    position: absolute;
+    top: 67px;
+    left: 740px;
+    width: 500px;
+    text-align: center;
+    background-color: #b6e59e;
+    color: black;
+}
+
+
+/*** AVERAGE SCORE ***/
+#avgbutton {
+    position: absolute;
+    top: 111px;
+    left: 740px;
+    font-family: 'Arima Madurai';
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 5px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+}
+
+#average {
+    position:absolute; 
+    top: 111px; 
+    left: 913px; 
+    width: 65px; 
+    height: 30px; 
+    font-size: 14px;
+    padding: 2px 3px;
+}
+
+
+/*** SHOWING ALL SCORES ***/ 
+#showscores {
+    position: absolute;
+    top: 157px;
+    left: 740px;
+    font-family: 'Arima Madurai';
+    padding: 5.5px 16px;
+    background-color: #75cff0;
+    border: 1px solid black;
+    font-size: 14px;
+    font-weight: bold;
+    transition-duration: 0.2s;
+}
+
+#showscores:hover {
+    background-color: #a5ebec;
+}
+
+
+#allscores {
+    visibility: hidden;
+    display: table;
+    position: absolute;
+    top: 194px;
+    left: 737.5px;
+    font-family: 'Arima Madurai';
+    /* border-left: 1px solid #f44336; */
+}
+
+
+#allscores p {
+    display: table-row;
+}
+
+#allscores label {
+    padding: 3.5px;
+    padding-right: 20px;
+    display: table-cell;
+    font-size: 13px;
+}
+
+#allscores input {
+    display: table-cell;
+    width: 65px;
+}
+
+/*** MARKER LOCATION DISPLAY ***/
+#markerMaintenance {
+    position: absolute;
+    top: 474px;
+    left: 740.5px;
+    /* visibility: hidden; */
+}
+
+#markerMaintenance label {
+    font-family: 'Arima Madurai';
+    font-size: 12.9px;
+    padding-right: 8.5px;
+}
+
+#markerMaintenance input {
+    width: 300px;
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: 'Arima Madurai';
+    /* text-align: center; */
+}
+
+
+/*** REMOVE MARKER BUTTON ***/
+#removeMarker {
+    position: block;
+    /* top: 501px;
+    left: 739px; */
+    background-color: #0023b3;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-family: 'Arima Madurai';
+    font-size: 13px;
+    transition-duration: 0.2s;
+}
+
+#removeMarker:hover {
+    background-color: #4d158d;
+    color: white;
+}

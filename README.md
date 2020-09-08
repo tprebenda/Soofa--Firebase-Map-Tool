@@ -7,7 +7,7 @@ User can also use the Google Searchbox to place a marker at a specific location 
 
 The 'Remove Marker' button allows you to remove most recently placed marker, and re-orient towards previous marker (if any exist).
 
-URL: https://tprebenda.github.io/Soofa--Firebase-Map-Tool/
+**URL:** https://tprebenda.github.io/Soofa--Firebase-Map-Tool/
 
 (URL of original tool:) https://soofaiap.firebaseapp.com/
 

@@ -9,7 +9,7 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 URL: https://tprebenda.github.io/Soofa--Firebase-Map-Tool/
 
-(Original tool URL: https://soofaiap.firebaseapp.com/ ) 
+(URL of original tool:) https://soofaiap.firebaseapp.com/
 
 
 

@@ -1,9 +1,11 @@
 # Soofa--Firebase-Map-Tool
 My implementation of the Soofa Firebase Map Tool.
 
-Allows user to set heatmap data and place markers on the map to discern ideal locations for Soofa Talk signs, based on given heatmap data displayed in scores.
+**Usage:**
 
-User can also use the Google Searchbox to place a marker at a specific location with a given address.
+This web app allows the user to place a marker on the map (via click, or searchbox), and find the ideal locations for a Soofa Talk sign, based on the data provided by various city-data API's (Google Maps, Yelp, etc).  
+
+You may also select any combination of heatmap layers to be displayed on the map, to help find the ideal placement with a given API's data in mind.
 
 The 'Remove Marker' button allows you to remove most recently placed marker, and re-orient towards previous marker (if any exist).
 

@@ -13,6 +13,8 @@ The 'Remove Marker' button allows you to remove most recently placed marker, and
 
 (URL of original tool:) https://soofaiap.firebaseapp.com/
 
+(It is recommended that this tool be used in a Google Chrome browser, but it is fully functional in all browsers.)
+
 
 
                                           --- CHANGES MADE FROM ORIGINAL TOOL ---

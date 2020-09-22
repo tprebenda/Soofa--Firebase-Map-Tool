@@ -7,7 +7,7 @@ My implementation of the Soofa Firebase Map Tool.
 - You may also select any combination of heatmap layers to be displayed on the map, to help find the ideal placement with a given API's data in mind.
 - The 'Remove Marker' button allows you to remove most recently placed marker, and re-orient towards previous marker (if any exist).
 
-(It is recommended that this tool be used in a Google Chrome browser, but it is fully functional in all browsers.)
+(*Note:* It is recommended that this tool be used in a Google Chrome browser, but it is fully functional in all browsers.)
 
 **URL:** https://tprebenda.github.io/Soofa--Firebase-Map-Tool/
 
@@ -25,8 +25,6 @@ My implementation of the Soofa Firebase Map Tool.
  -- Relevant heatmap is only present on a small part of the map, especially with a predefined radius, so I made the leaflet map smaller to encompass just past these large data points at the extremeties. This created more space below the map, which allowed me to better place elements that interact with it. On that note...
  
 -- The heatmap checkbox selector has been relocated beneath the map, for a more natural transition between activating heatlayers and studying the map. The same goes for the city selector. 
-
-*Note:* The city selector is... semi-functional. I was able to copy the Soofa heatmap data for most of the cities, but some of them must not have copied over correctly, specifically Providence, Trenton, and Arlington Heights.\. I attempted to write my own Python script for translating new data from jsons (parser.py, in the challenge/data folder), but it would have entailed considerable work, and I had already found your data (it just doesn't work, for whatever reason).  I assumed it would be alright to leave it in this state, considering it's an extremely easy fix with the data files on hand.
 
 -- Introduced new title (header) to the site: "Soofa Firebase Tool", which I placed in line with the map on the left side of the window. I took the signature Soofa red from your website :)
 

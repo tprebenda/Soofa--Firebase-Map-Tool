@@ -14,7 +14,7 @@ My implementation of the Soofa Firebase Map Tool.
 (URL of original tool:) https://soofaiap.firebaseapp.com/
 
 
-<br />
+__
                                           --- CHANGES MADE FROM ORIGINAL TOOL ---
 
 
